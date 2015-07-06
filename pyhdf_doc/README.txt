@@ -1,2 +1,0 @@
-# pyhdf_doc
-
