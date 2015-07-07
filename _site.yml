@@ -1,9 +1,9 @@
-brand: pyhdf
+brand: Urubu Quickstart
 
 bootswatch: null # flatly, yeti, lumen,... 
 navbar_inverse: false 
 bootstrap: 3.3.4
-navbar_right_items: 3 # at least 1
+navbar_right_items: 1
 
 reflinks:
     urubu:
@@ -36,7 +36,3 @@ reflinks:
     bootswatch:
         url: http://bootswatch.com
         title: Bootswatch
-    add1:
-        url: /commands_files/add.html
-        title: add
-

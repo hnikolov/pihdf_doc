@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get started</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="/css/site.css" rel="stylesheet" media="screen">
+    <link href="/css/syntax.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48968311-4', 'jandecaluwe.com');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Urubu Quickstart</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="/start.html">Get started</a></li>
+            <li><a href="/concepts.html">Concepts</a></li>
+            <li><a href="/customize.html">Customize</a></li>
+            <li><a href="/deploy.html">Deploy</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="/demo/" class="dropdown-toggle" data-toggle="dropdown">Demo <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/blog/">Blog demo</a></li>
+                <li><a href="/manual/">Manual demo</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+      <li class="active">Get started</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Get started</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <p class="lead">Urubu Quickstart is a companion site of <a href="http://urubu.jandecaluwe.com" title="Urubu">Urubu</a>, a tool to develop static
+websites.  You can use it set up a new Urubu project quickly. </p>
+<h2 id="usage">Usage</h2>
+<p>Urubu Quickstart is both a starting point and a tutorial.  To use it, follow
+the steps in the next sections and pages.  For in-depth info, consult the
+<a href="http://urubu.jandecaluwe.com/manual" title="Urubu Manual">Urubu Manual</a>.</p>
+<h2 id="install-urubu">Install Urubu</h2>
+<p>Urubu requires Python 2.7. You can install it using pip: </p>
+<div class="codehilite"><pre>pip install urubu
+</pre></div>
+
+
+<p>If pip is not yet available on your system, follow the <a href="http://www.pip-installer.org/en/latest/installing.html">pip installation
+instructions</a>.</p>
+<h2 id="install-urubu-quickstart-locally">Install Urubu Quickstart locally</h2>
+<p><a href="https://github.com/jandecaluwe/urubu-quickstart/archive/master.zip">Download</a> the zip archive with the Urubu Quickstart
+source and unzip it. The resulting directory is your new project directory.
+Rename it appropriately.  Go into the project directory and run <code>make</code> to
+build the website locally.</p>
+<p><em>In a separate terminal window</em>, go into the project directory and run <code>make
+serve</code>.  This starts a local web server for the locally built website.  You can
+view it in a browser on <a href="http://localhost:8000">localhost:8000</a>.  Note that it
+is identical to <a href="http://urubu-quickstart.jandecaluwe.com" title="Urubu Quickstart site">Urubu Quickstart site</a>. </p>
+<p>You are now ready to make changes. Keep the local webserver running while
+making changes, so that you can verify them in the browser.</p>
+<h2 id="set-the-brand-name">Set the brand name</h2>
+<p>The file <code>_site.yml</code> contains project configuration variables.  As a first
+change, edit <code>_site.yml</code> and set the <code>brand</code> variable to the name of your
+project. Run <code>make</code> and the verify the change in the browser, at the left side
+in the top navbar. </p>
+<h2 id="adapt-the-home-page">Adapt the home page</h2>
+<p>The <code>index.md</code> file corresponds to the home page of the site. It has a <code>title</code>
+and the <code>tagline</code> variable that are displayed prominently. Adapt them to your
+project, run <code>make</code> and verify the changes.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Get started</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#install-urubu">Install Urubu</a></li>
+<li><a href="#install-urubu-quickstart-locally">Install Urubu Quickstart locally</a></li>
+<li><a href="#set-the-brand-name">Set the brand name</a></li>
+<li><a href="#adapt-the-home-page">Adapt the home page</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+  <ul class="pager">
+    <li class="next"><a href="/concepts.html">Concepts &rarr;</a></li>
+  </ul>
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
