@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Urubu Quickstart</title>
+    <title>Deploy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -44,11 +44,10 @@
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
- 
             <li><a href="/start.html">Get started</a></li>
             <li><a href="/concepts.html">Concepts</a></li>
             <li><a href="/customize.html">Customize</a></li>
-            <li><a href="/deploy.html">Deploy</a></li>
+            <li class="active"><a href="/deploy.html">Deploy</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -66,15 +65,53 @@
     </div>
 
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>Urubu Quickstart</h1>
-                <h2>Set up your new Urubu project quickly</h2>
-             </div>
-        </div>
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+      <li class="active">Deploy</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Deploy</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <p>The website is built in the <code>_build</code> subdirectory.  To deploy it, you must
+transfer the contents of that subdirectory to the production web server.  There
+are many ways to do this.  An exhaustive overview is beyond the scope of this
+site, but we will describe one technique which is particularly elegant. This is
+the method used for Urubu Quickstart itself.</p>
+<p>Urubu Quickstart is developed using git and hosted on <a href="https://github.com/jandecaluwe/urubu-quickstart">GitHub</a>.  GitHub
+offers <a href="http://pages.github.com/">GitHub Pages</a> as a way to host websites from the project repository
+itself.  Technically, this is accomplished by maintaining the website content
+on a specific branch, called <code>gh-pages</code>.</p>
+<p>If you use git and GitHub, you can deploy your website to GitHub
+pages with the following command:</p>
+<div class="codehilite"><pre>git subtree push --prefix _build origin gh-pages    
+</pre></div>
+
+
+<p>When the <code>gh-pages</code> branch does not exist yet it will be created.
+It is a good idea to put the command in the Makefile to make it
+easy to use. </p>
+<p>The website will be published at <code>http://&lt;username&gt;.github.io/&lt;repository&gt;</code>.
+You can also use a custom url. </p>
+      </div>
     </div>
+
+
+  </div>
+
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
 </div>
 
 
