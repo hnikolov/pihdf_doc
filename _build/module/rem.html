@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>pyhdf</title>
+    <title>Command 'remove'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -44,11 +44,10 @@
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
- 
             <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
             <li><a href="/pyhdf_doc/install.html">Install</a></li>
-            <li><a href="/pyhdf_doc/module/">module</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -62,15 +61,63 @@
     </div>
 
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>pyhdf</h1>
-                <h2>Python Hardware Design Framework based on MyHDL</h2>
-             </div>
-        </div>
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/pyhdf_doc/">Home</a></li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'remove'</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Command 'remove'</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> remove <span class="o">[</span>name<span class="o">]</span>
+</pre></div>
+
+
+<p><strong>[name]</strong> is an interface or parameter name.</p>
+<p>Command <strong>remove</strong> modifies the module's <code>.json</code> file by deleting the entry containing the <strong>[name]</strong>. Then, it invokes the <a href="/pyhdf_doc/module/update.html" title="Command 'update'"><strong>update</strong></a> command. </p>
+<h2 id="usage">Usage</h2>
+<p>For a <code>hello_world</code> example, from which we want to remove interface <code>in_1</code>, the usage is:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world remove in_1
+</pre></div>
+      </div>
     </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Command 'remove'</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+  <ul class="pager">
+  </ul>
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
 </div>
 
 

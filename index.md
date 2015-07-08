@@ -1,12 +1,14 @@
 ---
-title: Urubu Quickstart
-layout: home 
+title: pyhdf
+layout: home
 content:
-    - start
+    - introduction
     - concepts 
-    - customize
-    - deploy
-    - demo
+    - install
+    - module
+    - details
+    - tutorials
+    - faqs
 tagline:
-    Set up your new Urubu project quickly
+    Python Hardware Design Framework based on MyHDL
 ---
