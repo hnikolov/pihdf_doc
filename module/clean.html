@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>pyhdf</title>
+    <title>Command 'clean'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -44,11 +44,10 @@
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
- 
             <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
             <li><a href="/pyhdf_doc/install.html">Install</a></li>
-            <li><a href="/pyhdf_doc/module/">module</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -62,15 +61,85 @@
     </div>
 
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>pyhdf</h1>
-                <h2>Python Hardware Design Framework based on MyHDL</h2>
-             </div>
-        </div>
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/pyhdf_doc/">Home</a></li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'clean'</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Command 'clean'</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> clean
+</pre></div>
+
+
+<p>Command <strong>clean</strong> removes the files, which have been generated as a result of running simulation or conversion to verilog.
+In particular, this command deletes the following files:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.pyc</strong></td>
+<td>python bytecode files</td>
+</tr>
+<tr>
+<td><strong>.vcd</strong></td>
+<td>wave-form files from simulations</td>
+</tr>
+<tr>
+<td><strong>.v</strong></td>
+<td>verilog files generated for co-simulation and synthesis</td>
+</tr>
+<tr>
+<td><strong>.tvr</strong></td>
+<td>test-vectors and results from simulations</td>
+</tr>
+</tbody>
+</table>
+<p>Command clean deletes also directory <code>coverage_html</code>.</p>
+      </div>
     </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Command 'clean'</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#format">Format</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+  <ul class="pager">
+  </ul>
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
 </div>
 
 

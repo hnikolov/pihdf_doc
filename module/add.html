@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Customize</title>
+    <title>Command 'add'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -39,25 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">Urubu Quickstart</a>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/start.html">Get started</a></li>
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li class="active"><a href="/pyhdf_doc/customize.html">Customize</a></li>
-            <li><a href="/pyhdf_doc/deploy.html">Deploy</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/pyhdf_doc/demo/" class="dropdown-toggle" data-toggle="dropdown">Demo <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/pyhdf_doc/blog/">Blog demo</a></li>
-                <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-              </ul>
-            </li>
+            <li><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -69,40 +65,32 @@
 
   <ol class="breadcrumb">
     <li><a href="/pyhdf_doc/">Home</a></li>
-      <li class="active">Customize</li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'add'</li>
   </ol>
 
   <div class="page-header">
-    <h1>Customize</h1>
+    <h1>Command 'add'</h1>
   </div>
 
   <div class="row">
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <h2 id="theme">Theme</h2>
-<p>The default theme of Urubu Quickstart is based on the stock <a href="http://getbootstrap.com" title="Bootstrap">Bootstrap</a> theme.</p>
-<p>You can easily get a different look and feel thanks to <a href="http://bootswatch.com" title="Bootswatch">Bootswatch</a>. This
-project develops a number of themes as drop-in replacements for Bootstrap.
-Simply set the <code>bootswatch</code> variable in <code>_site.yml</code> to the name of the desired
-Bootswatch theme, such as <code>flatly</code>, <code>yeti</code> or <code>lumen</code>.</p>
-<p>You can also change the look of the navbar by setting <code>navbar_inverse</code> to
-<code>true</code>.</p>
-<h2 id="footer">Footer</h2>
-<p>You can customize the content of the page footer in the <code>_layout/footer.html</code>
-file.</p>
-<h2 id="advanced">Advanced</h2>
-<p>Urubu and the technologies behind it offer a wide range of customization
-options. On this site we can only briefly describe some possibilities. </p>
-<p>All layouts are defined in the <code>_layout</code> subdirectory.  They are implemented as
-<a href="http://jinja.pocoo.org" title="Jinja2">Jinja2 Templates</a>.  You can modify existing layouts or create new
-ones. You can use <em>template inheritance</em> to implement just the desired feature
-in a layout, and reuse everything else from the parent layout. </p>
-<p>Urubu was designed to work well with <a href="http://getbootstrap.com" title="Bootstrap">Bootstrap</a>, a framework of ready-to-use
-website components, style sheets and javascript functions. You can use
-Bootstrap features to customize your layouts. Alternatively, you can switch to
-another framework altogether.</p>
-<p>For more info on customization, start by reading the <a href="http://urubu.jandecaluwe.com/manual" title="Urubu Manual">Urubu Manual</a>.</p>
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> add <span class="o">[</span><span class="nb">type</span><span class="o">]</span> <span class="s2">&quot;flags&quot;</span>
+</pre></div>
+
+
+<p><strong>[type]</strong> is a known interface type. <strong>flags</strong> surrownded by quotes provide additional required information.</p>
+<p>Command <strong>add</strong> modifies the module's <code>.json</code> file by inserting an entry containing the <strong>[type]</strong> and the additional information. Then, it invokes the update command.</p>
+<h2 id="usage">Usage</h2>
+<p>For a <code>hello_world</code> example, to which we want to add a <code>64-bit</code> input <code>STAvln</code>, the usage is: </p>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world add STAvln <span class="s2">&quot;-n in_1 -d IN -w 64&quot;</span>
+</pre></div>
+
+
+<p>Check the interfaces section of <code>pyhdf</code> for examples of how to add a known interface.</p>
       </div>
     </div>
 
@@ -110,12 +98,11 @@ another framework altogether.</p>
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>Customize</strong></a>
+            <a href="#"><strong>Command 'add'</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#theme">Theme</a></li>
-<li><a href="#footer">Footer</a></li>
-<li><a href="#advanced">Advanced</a></li>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a></li>
 </ul>
 </div>
 
@@ -127,8 +114,6 @@ another framework altogether.</p>
   </div>
 
   <ul class="pager">
-    <li class="previous"><a href="/pyhdf_doc/concepts.html">&larr; Concepts</a></li>
-    <li class="next"><a href="/pyhdf_doc/deploy.html">Deploy &rarr;</a></li>
   </ul>
 
     <div class="footer">

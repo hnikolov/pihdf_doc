@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Organize</title>
+    <title>Command 'test'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -39,25 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">Urubu Quickstart</a>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/start.html">Get started</a></li>
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li><a href="/pyhdf_doc/customize.html">Customize</a></li>
-            <li><a href="/pyhdf_doc/deploy.html">Deploy</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/pyhdf_doc/demo/" class="dropdown-toggle" data-toggle="dropdown">Demo <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/pyhdf_doc/blog/">Blog demo</a></li>
-                <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-              </ul>
-            </li>
+            <li><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -69,42 +65,63 @@
 
   <ol class="breadcrumb">
     <li><a href="/pyhdf_doc/">Home</a></li>
-      <li class="active">Organize</li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'test'</li>
   </ol>
 
   <div class="page-header">
-    <h1>Organize</h1>
+    <h1>Command 'test'</h1>
   </div>
 
   <div class="row">
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <h2 id="navbar">Navbar</h2>
-<p>The navbar at the top is defined by the <code>content</code> variable of the top-level
-<code>index.md</code> file.  Its value is a list of reference ids of pages, folders and
-external links.</p>
-<p>The number of items at the right side of the navbar is defined by the
-<code>navbar_right_items</code> variable. </p>
-<h2 id="pages">Pages</h2>
-<p>Each Markdown file with extension <code>.md</code> corresponds to a page on
-the website. In the YAML frontmatter, you define the title and the
-layout of a page. The default <code>page</code> layout has a sidebar. 
-If you don't need a sidebar, use the <code>simple_page</code> layout. </p>
-<p>You can add a pager setting the <code>pager</code> variable to <code>true</code>.</p>
-<h2 id="folders">Folders</h2>
-<p>A folder is a collection of pages. It is implemented as a subdirectory with
-content files.</p>
-<p>The content of a folder is defined in its <code>index.md</code> file.  One option is to
-list the content explicitly. As an example, see <a href="/pyhdf_doc/manual/" title="Manual demo">Manual demo</a>.  Another option is to
-specify the content ordering. For example, for a blog you would set the <code>order</code>
-variable to <code>date</code>, and the <code>reverse</code> variable to <code>true</code>, as in <a href="/pyhdf_doc/blog/" title="Blog demo">Blog demo</a>.</p>
-<p>A link to a folder refers to its <code>index.html</code> page. In the navbar, you can
-implement it as a dropdown menu instead, by setting the <code>dropdown</code> variable to
-<code>true</code> in the <code>index.md</code> file. See the <code>demo</code> folder and the <code>Demo</code> menu item.</p>
-<h2 id="external-links">External links</h2>
-<p>You can define reference ids for external links in the <code>reflinks</code> variable in
-<code>_site.yml</code>.</p>
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> <span class="nb">test</span> <span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+
+
+<p>Command test executes the unit tests for the given module. The tests are specified in the
+corresponding <code>utest*.py</code> file. For a <code>hello_world</code> example, the tests are defined in:</p>
+<div class="codehilite"><pre>└── hello_world
+    └── test
+        └── utest_hello_world.py
+</pre></div>
+
+
+<h2 id="usage">Usage</h2>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world <span class="nb">test</span>
+</pre></div>
+
+
+<p>This command runs all available tests in <code>utest_hello_world.py</code> file.</p>
+<p>To run a single test:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world <span class="nb">test </span>test_003
+</pre></div>
+
+
+<p>This command runs only <code>tst_003</code> if such a test exists in <code>utest_hello_world.py</code> file.</p>
+<h3 id="additional-options">Additional options:</h3>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world <span class="nb">test </span>recursive
+</pre></div>
+
+
+<p>This command runs all available tests in the directory tree of <code>hello_world</code>,
+including tests of sub-modules.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world <span class="nb">test </span>with_coverage
+</pre></div>
+
+
+<p>This command runs all available tests in <code>utest_hello_world.py</code> and collect code coverage statistics.</p>
+<p>The result is stored in:</p>
+<div class="codehilite"><pre>└── hello_world
+    └── out
+        └── coverage_html
+</pre></div>
+
+
+<p>To look at the statistics, open file <code>index.html</code> in directory <code>coverage_html</code>.</p>
       </div>
     </div>
 
@@ -112,13 +129,14 @@ implement it as a dropdown menu instead, by setting the <code>dropdown</code> va
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>Organize</strong></a>
+            <a href="#"><strong>Command 'test'</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#navbar">Navbar</a></li>
-<li><a href="#pages">Pages</a></li>
-<li><a href="#folders">Folders</a></li>
-<li><a href="#external-links">External links</a></li>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#additional-options">Additional options:</a></li>
+</ul>
+</li>
 </ul>
 </div>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>First Chapter</title>
+    <title>Command 'new'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -39,25 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">Urubu Quickstart</a>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/start.html">Get started</a></li>
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li><a href="/pyhdf_doc/customize.html">Customize</a></li>
-            <li><a href="/pyhdf_doc/deploy.html">Deploy</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/pyhdf_doc/demo/" class="dropdown-toggle" data-toggle="dropdown">Demo <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/pyhdf_doc/blog/">Blog demo</a></li>
-                <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-              </ul>
-            </li>
+            <li><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -69,20 +65,57 @@
 
   <ol class="breadcrumb">
     <li><a href="/pyhdf_doc/">Home</a></li>
-      <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-      <li class="active">First Chapter</li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'new'</li>
   </ol>
 
   <div class="page-header">
-    <h1>First Chapter</h1>
+    <h1>Command 'new'</h1>
   </div>
 
   <div class="row">
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <h2 id="first-section">First section</h2>
-<h2 id="second-section">Second Section</h2>
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> new
+</pre></div>
+
+
+<p>Command <strong>new</strong> creates a new module project from a <code>.json</code> file located in <strong>PATH</strong>. The json file must have the same name as the directory in which it is located. For example, for a new module <code>hello_world</code>, the staring point is:</p>
+<div class="codehilite"><pre>└── hello_world
+    └── hello_world.json
+</pre></div>
+
+
+<p>In case <strong>PATH</strong> points to a directory which does not exist or a properly named .json file is not found in PATH, then command <strong>new</strong> creates a default .json file as well as the corresponding directory if needed. The default .json file contains only a Reset and Clock interfaces. This is convenient way to create a new HW module project without the need to prepare a .json file in advance.</p>
+<h2 id="usage">Usage</h2>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world new
+</pre></div>
+
+
+<p>The command will generate the following files and directories:</p>
+<div class="codehilite"><pre>└── hello_world
+    ├── hello_world.json
+    ├── hello_world.py
+    ├── __init__.py
+    ├── out
+    ├── src
+    │   ├── compile_list.txt
+    │   ├── hello_world_beh.py
+    │   ├── hello_world_rtl.py
+    │   └── __init__.py
+    └── test
+        ├── hello_world_cosim.gtkw
+        ├── hello_world.gtkw
+        ├── __init__.py
+        ├── t_hello_world.py
+        ├── utest_hello_world.py
+        └── vectors
+</pre></div>
+
+
+<p>After creating the project, you can use commands add and remove to build/update the top-level interfaces of the HW module. The .json file is modified accordingly after every use of commands add and remove. </p>
       </div>
     </div>
 
@@ -90,11 +123,11 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>First Chapter</strong></a>
+            <a href="#"><strong>Command 'new'</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#first-section">First section</a></li>
-<li><a href="#second-section">Second Section</a></li>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a></li>
 </ul>
 </div>
 
@@ -106,8 +139,6 @@
   </div>
 
   <ul class="pager">
-    <li class="previous"><a href="/pyhdf_doc/manual/intro.html">&larr; Introduction</a></li>
-    <li class="next"><a href="/pyhdf_doc/manual/chapter_2.html">Second Chapter &rarr;</a></li>
   </ul>
 
     <div class="footer">

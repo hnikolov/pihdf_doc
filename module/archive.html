@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Latest post</title>
+    <title>Command 'archive'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -39,25 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">Urubu Quickstart</a>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/start.html">Get started</a></li>
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li><a href="/pyhdf_doc/customize.html">Customize</a></li>
-            <li><a href="/pyhdf_doc/deploy.html">Deploy</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/pyhdf_doc/demo/" class="dropdown-toggle" data-toggle="dropdown">Demo <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/pyhdf_doc/blog/">Blog demo</a></li>
-                <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-              </ul>
-            </li>
+            <li><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -69,25 +65,62 @@
 
   <ol class="breadcrumb">
     <li><a href="/pyhdf_doc/">Home</a></li>
-      <li><a href="/pyhdf_doc/blog/">Blog demo</a></li>
-      <li class="active">Latest post</li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'archive'</li>
   </ol>
 
   <div class="page-header">
-    <h1>Latest post</h1>
+    <h1>Command 'archive'</h1>
   </div>
 
   <div class="row">
 
     <div class="content">
       <div class="col-md-7" role="main">
-        
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> archive
+</pre></div>
+
+
+<p>Command <strong>archive</strong> uses <code>tar -czvf</code> to create a <code>.tgz</code> file containing all the files in the module's directory tree.
+The archive is stored in the current directory.</p>
+<h2 id="usage">Usage</h2>
+<p>For a <code>hello_world</code> example,</p>
+<div class="codehilite"><pre>$ module hello_world archive
+</pre></div>
+
+
+<p>will result in:</p>
+<div class="codehilite"><pre>├── hello_world
+│   │
+│   ...
+│
+└── hello_world.tgz
+</pre></div>
       </div>
     </div>
 
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Command 'archive'</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
 
   </div>
 
+  <ul class="pager">
+  </ul>
 
     <div class="footer">
         <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>

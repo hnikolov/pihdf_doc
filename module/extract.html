@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Second Chapter</title>
+    <title>Command 'extract'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -39,25 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">Urubu Quickstart</a>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/start.html">Get started</a></li>
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
             <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li><a href="/pyhdf_doc/customize.html">Customize</a></li>
-            <li><a href="/pyhdf_doc/deploy.html">Deploy</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/pyhdf_doc/demo/" class="dropdown-toggle" data-toggle="dropdown">Demo <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/pyhdf_doc/blog/">Blog demo</a></li>
-                <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-              </ul>
-            </li>
+            <li><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -69,20 +65,41 @@
 
   <ol class="breadcrumb">
     <li><a href="/pyhdf_doc/">Home</a></li>
-      <li><a href="/pyhdf_doc/manual/">Manual demo</a></li>
-      <li class="active">Second Chapter</li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'extract'</li>
   </ol>
 
   <div class="page-header">
-    <h1>Second Chapter</h1>
+    <h1>Command 'extract'</h1>
   </div>
 
   <div class="row">
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <h2 id="first-section">First section</h2>
-<h2 id="second-section">Second Section</h2>
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> extract
+</pre></div>
+
+
+<p>Command <strong>extract</strong> does the opposite of command <a href="/pyhdf_doc/module/archive.html" title="Command 'archive'"><strong>archive</strong></a>.
+That is, it uses <code>tar -xzvf</code> to untar a <code>.tgz</code> file specified by PATH.</p>
+<h2 id="usage">Usage</h2>
+<p>If a <code>hello_world</code> design has been archived:</p>
+<div class="codehilite"><pre>├── hello_world
+│   │
+│   ...
+│
+└── hello_world.tgz
+</pre></div>
+
+
+<p>it can be extracted by:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world extract
+</pre></div>
+
+
+<p><strong>Note:</strong> <code>As a result, if directory hello_world exists (as in the example above), the files in the directory will be overwritten.</code></p>
       </div>
     </div>
 
@@ -90,11 +107,11 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>Second Chapter</strong></a>
+            <a href="#"><strong>Command 'extract'</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#first-section">First section</a></li>
-<li><a href="#second-section">Second Section</a></li>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a></li>
 </ul>
 </div>
 
@@ -106,7 +123,6 @@
   </div>
 
   <ul class="pager">
-    <li class="previous"><a href="/pyhdf_doc/manual/chapter_1.html">&larr; First Chapter</a></li>
   </ul>
 
     <div class="footer">

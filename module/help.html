@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Concepts</title>
+    <title>Command 'help'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -45,9 +45,9 @@
 
           <ul class="nav navbar-nav navbar-left">
             <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
-            <li class="active"><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
+            <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
             <li><a href="/pyhdf_doc/install.html">Install</a></li>
-            <li><a href="/pyhdf_doc/module/">module</a></li>
+            <li class="active"><a href="/pyhdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -65,27 +65,91 @@
 
   <ol class="breadcrumb">
     <li><a href="/pyhdf_doc/">Home</a></li>
-      <li class="active">Concepts</li>
+      <li><a href="/pyhdf_doc/module/">module</a></li>
+      <li class="active">Command 'help'</li>
   </ol>
 
   <div class="page-header">
-    <h1>Concepts</h1>
+    <h1>Command 'help'</h1>
   </div>
 
   <div class="row">
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <p class="lead">Under construction</p>
+        <h2 id="format">Format</h2>
+<div class="codehilite"><pre>module <span class="nb">help</span> <span class="o">[</span>topic<span class="o">]</span>
+</pre></div>
+
+
+<p>Command <strong>help</strong> gives more information about certain <code>topic</code>. A topic can be a module's command or one of the following additional help topics:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Topic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>interfaces</td>
+<td>list of supported interfaces</td>
+</tr>
+<tr>
+<td>pyhdf</td>
+<td>information about the content of pyhdf</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage</h2>
+<div class="codehilite"><pre><span class="nv">$ </span>module <span class="nb">help test</span>
+</pre></div>
+
+
+<p>This will print the information about comamnd <a href="/pyhdf_doc/module/test.html" title="Command 'test'">test</a>.
+The last topic uses command <strong>help</strong> to call the integrated python help function and to get information about the classes of pyhdf.
+In addition, the help information about a particular class of these modules can be obtained by using the <code>dot notation</code>.
+For example, the following command will print the information available for the class of the base hand-shake interface of pyhdf:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module <span class="nb">help </span>pyhdf.HSD
+</pre></div>
+
+
+<p>Similarly, we can get the available information of any class of the python installation, e.g.,</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module <span class="nb">help </span>math.cos
+</pre></div>
+
+
+<p>will print the following information</p>
+<div class="codehilite"><pre>Help on built-in function cos in math:
+
+math.cos = cos(...)
+    cos(x)
+
+    Return the cosine of x (measured in radians).
+</pre></div>
       </div>
     </div>
 
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Command 'help'</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#format">Format</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
 
   </div>
 
   <ul class="pager">
-    <li class="previous"><a href="/pyhdf_doc/introduction.html">&larr; Introduction</a></li>
-    <li class="next"><a href="/pyhdf_doc/install.html">Install &rarr;</a></li>
   </ul>
 
     <div class="footer">
