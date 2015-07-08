@@ -1,13 +1,10 @@
 ---
 title: Details
 layout: index
-#content:
+content:
 #    - json
-#    - utest
-#abstract:
-#    Details about pyhdf ...
-order: date
+    - utest
 abstract:
-    Under construction...
+    Details about pyhdf ...
 ---
 

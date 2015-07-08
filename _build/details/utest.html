@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit testing of design modules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="/pyhdf_doc/css/site.css" rel="stylesheet" media="screen">
+    <link href="/pyhdf_doc/css/syntax.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48968311-4', 'jandecaluwe.com');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
+            <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li><a href="/pyhdf_doc/module/">module</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/pyhdf_doc/">Home</a></li>
+      <li><a href="/pyhdf_doc/details/">Details</a></li>
+      <li class="active">Unit testing of design modules</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Unit testing of design modules</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <p class="lead">Myframework promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
+design module unit tests. Below, we give details about the features and the usage of the testing facilities of <code>pyhdf</code>.</p>
+<p>To ease the discussion, assume a simple <code>hello_world</code> module design, which has one input and one output interface (HSD type),
+reset and clock inputs, and one parameter (generic):</p>
+<p><img alt="Alt text" src="../images/hello.png" /></p>
+<p><strong>It is important to note that the unit testing of <code>pyhdf</code> abstracts low-level details such as <code>reset</code> and <code>clock</code> manipulation,
+and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining
+input stimuli and expected results (reference data).</strong></p>
+<h2 id="module-files-and-directory-structure">Module files and directory structure</h2>
+<p>Starting from a <code>hello_world.json</code> specification file of the module, an empty unit test template is automatically created when running command <strong>new</strong>.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>module hello_world new
+</pre></div>
+
+
+<p>For our <code>hello_world</code> example design, the command will generate the following files and directories:</p>
+<div class="codehilite"><pre>└── hello_world
+    ├── hello_world.json
+    ├── hello_world.py
+    ├── __init__.py
+    ├── out
+    ├── src
+    │   ├── compile_list.txt
+    │   ├── hello_world_beh.py
+    │   ├── hello_world_rtl.py
+    │   └── __init__.py
+    └── test
+        ├── hello_world.gtkw
+        ├── hello_world_cosim.gtkw
+        ├── __init__.py
+        ├── t_hello_world.py
+        ├── utest_hello_world.py
+        └── vectors
+</pre></div>
+
+
+<p>All the files related to testing are located in directory <code>test</code>.</p>
+<ul>
+<li>
+<p>The hello_world.gtkw and hello_world_cosim.gtkw files are used to visualize the timing diagrams from .vcd files (e.g., using GTKWave).
+  The .vcd files are generated by the simulator as a result of running a test.</p>
+</li>
+<li>
+<p>The file <code>t_hello_world.py</code> serves as a base test class, which contains information about the input and output interfaces of module <code>hello_world</code>,
+  as well as some additional info/classes.</p>
+</li>
+<li>
+<p>The file <code>utest_hello_world.py</code> contains all user-defined test. Initially, it contains only one empty test. The designer has to fill the test body and,
+  of course, to add other test as well. <strong>This file is the only place, where the designer has to add code with regards to module testing</strong>.</p>
+</li>
+<li>
+<p><code>vectors</code> is a directory used to store files containing stimuli vectors or generated results. Providing stimuli from file is an alternative way to
+  feed units under test with data.</p>
+</li>
+</ul>
+<h2 id="unit-test-structure">Unit test structure</h2>
+<p>In this section, we focus on file <code>utest_hello_world.py</code> and discuss the structure of a unit test. As an example, we consider a <code>hello_world</code> design,
+which has one input and one output interfaces (in addition to <em>clk</em> and <em>reset</em>). After running command <strong>new</strong>, the generated <code>utest_hello_world.py</code>
+file looks like this:</p>
+<div class="codehilite"><pre> <span class="kn">import</span> <span class="nn">unittest</span>
+ <span class="kn">from</span> <span class="nn">mylib</span> <span class="kn">import</span> <span class="o">*</span>
+ <span class="kn">from</span> <span class="nn">t_hello_world</span> <span class="kn">import</span> <span class="n">t_hello_world</span>
+
+ <span class="k">class</span> <span class="nc">Test_hello_world</span><span class="p">(</span><span class="n">t_hello_world</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;|</span>
+<span class="sd">     | The main class for unit-testing. Add your tests here.</span>
+<span class="sd">     |________&#39;&#39;&#39;</span>
+     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="c"># call base class constructor</span>
+         <span class="n">t_hello_world</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+     <span class="c"># Automatically executed BEFORE every TestCase</span>
+     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="n">t_hello_world</span><span class="o">.</span><span class="n">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+     <span class="c"># Automatically executed AFTER every TestCase</span>
+     <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="n">t_hello_world</span><span class="o">.</span><span class="n">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+     <span class="c"># @unittest.skip(&quot;&quot;)</span>
+     <span class="k">def</span> <span class="nf">test_000</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="sd">&quot;&quot;&quot; &gt;&gt;&gt;&gt;&gt;&gt; TEST_000: TO DO: describe the test &quot;&quot;&quot;</span>
+
+         <span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;top&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">BEH</span><span class="p">}</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">tb_config</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;simulation_time&quot;</span><span class="p">:</span><span class="s">&quot;auto&quot;</span><span class="p">,</span>
+                           <span class="s">&quot;cosimulation&quot;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+                           <span class="s">&quot;trace&quot;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+                           <span class="s">&quot;fdump&quot;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+                           <span class="s">&quot;ipgi&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                           <span class="s">&quot;ipgo&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+
+         <span class="c"># TO DO: generate stimuli and reference data here</span>
+
+         <span class="bp">self</span><span class="o">.</span><span class="n">run_it</span><span class="p">()</span>
+</pre></div>
+
+
+<p>In this file, there is one empty test (<code>test_000</code>) generated. In every test, some configuration and module under test parameter values have to be set.
+In addition, the test has to provide stimuli for each input interface, and to provide reference data (expected result) for each output interface.
+Then, the test runs a simulation of the module under test using the provided stimuli and for each output interface, captures generated results.</p>
+<p>Consequently, the structure of a test can be summarized as follows:</p>
+<h3 id="test-header">Test <em>header</em></h3>
+<p>This includes the first 3 lines of the test. The test can be disabled by un-commenting the line at the beginning of the test:</p>
+<div class="codehilite"><pre><span class="c"># @unittest.skip(&quot;&quot;)</span>
+</pre></div>
+
+
+<p>Also, there is a string which is printed before executing the test. It is used for describing the test:</p>
+<div class="codehilite"><pre><span class="sd">&quot;&quot;&quot; &gt;&gt;&gt;&gt;&gt;&gt; TEST_000: TODO: describe the test &quot;&quot;&quot;</span><span class="s">&quot;</span>
+</pre></div>
+
+
+<p>The description has to be filled by the designer of the test.</p>
+<h3 id="test-configuration">Test configuration</h3>
+<p>Configuring the test is done by assigning values to the models and <code>tb_config</code> maps.</p>
+<ul>
+<li><strong>models:</strong> specifies the implementation model to be used during the test. The format of the map is a pair <strong>"module":model</strong>. There are 3 supported implementation models encoded in the following constants:</li>
+</ul>
+<table class="table">
+<thead>
+<tr>
+<th>Constant</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>self.BEH</strong></td>
+<td><em>Behaviour</em>, specified in pure <strong>Python</strong></td>
+</tr>
+<tr>
+<td><strong>self.RTL</strong></td>
+<td><em>Register Transfer Level (RTL)</em>, specified in convertible <strong>MyHDL</strong></td>
+</tr>
+<tr>
+<td><strong>self.VRLG</strong></td>
+<td>Third-party module written in <strong>Verilog</strong> (RTL)</td>
+</tr>
+</tbody>
+</table>
+<p>Using the keyword <code>"top"</code> as module specifies the top-level implementation model. In case of structured designs, individual sub-modules may have
+   different implementations used during different tests. For example, if our <code>hello_world</code> module contains 2 sub-modules named <code>hello1</code> and <code>world1</code>,
+   then specifying the implementation models can be done as follows:</p>
+<div class="codehilite"><pre><span class="sd">&quot;&quot;&quot; &#39;hello_world&#39;, behaviour model &quot;&quot;&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;top&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">BEH</span><span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="sd">&quot;&quot;&quot; &#39;hello_world&#39;, &#39;hello1&#39;, and &#39;world1&#39;, RTL model &quot;&quot;&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;top&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">RTL</span><span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="sd">&quot;&quot;&quot; &#39;hello_world&#39; and &#39;hello1&#39; - RTL model, &#39;world1&#39; - BEH model &quot;&quot;&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;top&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">RTL</span><span class="p">,</span> <span class="s">&quot;hello1&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">RTL</span><span class="p">,</span> <span class="s">&quot;world1&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">BEH</span><span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li><strong>tb_config:</strong> The test has the following attributes that need to be configured before running a test:</li>
+</ul>
+<table class="table">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>simulation_time</strong></td>
+<td>The simulator runs for the specified number of clock cycles. If set to <code>auto</code>, the simulation time is determined by the length of the input stimuli and expected results.</td>
+</tr>
+<tr>
+<td><strong>cosimulation</strong></td>
+<td>If set to <code>False</code>, the MyHDL simulator will be used. If set to <code>True</code>, the unit under test is first converted to verilog, then the provided verilog simulator (<code>icarus</code>) is used. That is, the python test is run together with the verilog simulation.</td>
+</tr>
+<tr>
+<td><strong>trace</strong></td>
+<td>Enable/disable <code>.vcd</code> trace generation. If set to <code>True</code>, the corresponding .vcd file is stored in directory <code>out</code>.</td>
+</tr>
+<tr>
+<td><strong>fdump</strong></td>
+<td>If set to <code>True</code>, the input stimuli data and the generated results are stored to files in directory <code>test/vectors</code>. The files have the name of the corresponding interfaces and extension <code>.tvr</code></td>
+</tr>
+<tr>
+<td><strong>ipgi</strong></td>
+<td>Inter-packet gap of the input stimuli. This option specifies the number of clock cycles between input stimuli. It can be 0 or greater than 0. In case of streaming interfaces (<code>STAvln</code>), a data packet is driven to the module without any gaps and the value of <code>ipgi</code> specifies the gap between the packets.</td>
+</tr>
+<tr>
+<td><strong>ipgo</strong></td>
+<td>Inter-packet gap of collecting results. This option specifies the number of clock cycles between capturing generated results. If set to 0, results are captured as soon as they are generated. In case of streaming interfaces (<code>STAvln</code>), a data packet is captured as soon as there is valid data generated. Gaps (of not capturing data) are inserted between capturing different packets. Option <code>ipgo</code> can be used for testing bush-back behavior.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="module-under-test-parameters">Module under test parameters</h3>
+<p>If a module contains (static) parameters, for each test, parameter values have to be provided. This is done in a similar way as for the test configuration.
+That is, if our <code>hello_world</code> example module has one parameter <code>N</code>, assigning value <code>10</code> to it in the test is done as follows:</p>
+<div class="codehilite"><pre><span class="bp">self</span><span class="o">.</span><span class="n">tb_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;N&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span>
+</pre></div>
+
+
+<h3 id="input-stimuli-generation">Input stimuli generation</h3>
+<p>The designer has to define a meaningful input data to be used as stimuli for each unit test. Generating actual data values can be done in many different ways.
+Below, we focus on how these values are made accessible by the module simulation.</p>
+<p>In the unit tests of a module, to every input interface, there is a list of payloads. The name of this list is the name of the input interface prefixed with <code>stim_</code>. The list items are <strong>{"payload":value}</strong> pairs, i.e., every value is considered as interface payload. For the <code>hello_world</code> example, which has one input interface (<code>rx</code>) of type <code>HSD</code>, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration part of the unit test:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">stim_rx</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&quot;payload&quot;</span><span class="p">:</span><span class="n">i</span><span class="p">})</span>
+</pre></div>
+
+
+<h3 id="input-stimuli-tofrom-files">Input stimuli to/from files</h3>
+<p>The unit test allows the input stimuli data and the generated results to be stored to files in directory <code>test/vectors</code>. This enables other tests to reuse already generated stimuli, submodule tests, etc...<code>TODO</code> The files have the name of the corresponding interfaces and extension <code>.tvr</code> <strong>fdum=True</strong>.</p>
+<h3 id="scheduling-of-stimuli-todo">Scheduling of stimuli <strong>TODO</strong></h3>
+<h3 id="reference-data-generation">Reference data generation</h3>
+<p>Similar to the input interfaces, to every output interface corresponds a list of payloads which is supposed to contain reference data, i.e., expected results.
+The name of this list is the name of the output interface prefixed with <code>ref_</code>. The list items are <strong>{"payload":value}</strong> pairs. For the <code>hello_world</code> example,
+which has one output interface (<code>tx</code>) of type <code>HSD</code>, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration
+part of the unit test:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">ref_tx</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&quot;payload&quot;</span><span class="p">:</span><span class="n">i</span><span class="p">})</span>
+</pre></div>
+
+
+<p>In this case, we assume that the <code>hello_world</code> module just propagates its input to its output.</p>
+<h3 id="run-the-test">Run the test</h3>
+<p>In order the test to run a simulation and to compare the generated results with the reference data, the following function is called: <strong>run_it()</strong>.
+Before running the simulation, this function checks the test configuration. One of the check is with regards to the simulation time.
+That is, if in the configuration, <code>"simulation_time"</code> has been set to <code>"auto"</code>, a proper simulation time is determined based on the size of the stimuli and
+the reference data. After running the simulation, this function checks the generated results against the expected data, i.e., the data assigned to the <code>ref_</code> lists.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Unit testing of design modules</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#module-files-and-directory-structure">Module files and directory structure</a></li>
+<li><a href="#unit-test-structure">Unit test structure</a><ul>
+<li><a href="#test-header">Test header</a></li>
+<li><a href="#test-configuration">Test configuration</a></li>
+<li><a href="#module-under-test-parameters">Module under test parameters</a></li>
+<li><a href="#input-stimuli-generation">Input stimuli generation</a></li>
+<li><a href="#input-stimuli-tofrom-files">Input stimuli to/from files</a></li>
+<li><a href="#scheduling-of-stimuli-todo">Scheduling of stimuli TODO</a></li>
+<li><a href="#reference-data-generation">Reference data generation</a></li>
+<li><a href="#run-the-test">Run the test</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+  <ul class="pager">
+  </ul>
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
