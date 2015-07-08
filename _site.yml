@@ -4,6 +4,7 @@ bootswatch: null # flatly, yeti, lumen,...
 navbar_inverse: false 
 bootstrap: 3.3.4
 navbar_right_items: 1
+baseurl: pyhdf_doc
 
 reflinks:
     urubu:
