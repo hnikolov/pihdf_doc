@@ -2,9 +2,7 @@
 
 To locally review the generated site (in the _build directory) before publishing to gh-pages, use
 
-```
     tserve --prefix pyhdf_doc _build
-```
 
 and point your browser to ``localhost:8000``
 
@@ -12,6 +10,4 @@ and point your browser to ``localhost:8000``
 
 Install tserve by:
 
-```
     pip install tservice
-```
