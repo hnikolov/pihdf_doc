@@ -1,19 +1,21 @@
 pyhdf_doc
 =========
 
+This repo contains the documentation of ``pyhdf``. The sources are in a markdown format and we use `Urubu <http://urubu.jandecaluwe.com/>`__  to convert them to a static website.
+
 Build the website
 -----------------
 
-This repo contains the source of a static website based on `Urubu <http://urubu.jandecaluwe.com/>`__. To create the website from the ``markdown`` input, use
+Just use:
 
     make build
 
-The website is created in directory ``_build``.
+The resulting (html) website is located in directory ``_build``.
 
 Review the website
 -------------------
 
-This website is to be hosted by ``github pages``. Therefore, the website needs to be built with the prefix ``pyhdf_doc`` (the name of this repo). Consequently, to locally review the generated website before publishing to ``gh-pages``,  use `T-Service <https://github.com/jiffyclub/tservice/>`__:
+The target website is hosted by ``github pages``. Therefore, the website needs to be built with the prefix ``pyhdf_doc`` (the name of this repo). Consequently, to review the generated website locally, you need to specify the prefix. For that, use `T-Service <https://github.com/jiffyclub/tservice/>`__:
 
     tserve --prefix pyhdf_doc _build
 
@@ -25,12 +27,3 @@ Install `T-Service <https://github.com/jiffyclub/tservice/>`__
 --------------------------------------------------------------
 
     pip install tservice
-
-Publish to github pages
------------------------
-
-Before you make the website available at ``gh-pages``, first ``commit`` and ``push`` all modifications. Then,
-
-    make publish
-
-This will push the content of directory ``_build`` to the branch called ``gh-pages``. 
