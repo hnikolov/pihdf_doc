@@ -4,7 +4,7 @@ pyhdf_doc
 Build the website
 -----------------
 
-This website project is based on `Urubu <http://urubu.jandecaluwe.com/>`__. To create a static website from the ``markdown`` input, use
+This repo contains the source of a static website based on `Urubu <http://urubu.jandecaluwe.com/>`__. To create the website from the ``markdown`` input, use
 
     make build
 
@@ -13,7 +13,7 @@ The website is created in directory ``_build``.
 Review the website
 -------------------
 
-The target of this website project is to be hosted by github pages. This required the website to be built with the prefix ``pyhdf_doc`` (the repo name). Consequently, to locally review the generated website before publishing to ``gh-pages``,  use `T-Service <https://github.com/jiffyclub/tservice/>`__:
+This website is to be hosted by github pages. This requires the website to be built with the prefix ``pyhdf_doc`` (this repo name). Consequently, to locally review the generated website before publishing to ``gh-pages``,  use `T-Service <https://github.com/jiffyclub/tservice/>`__:
 
     tserve --prefix pyhdf_doc _build
 
