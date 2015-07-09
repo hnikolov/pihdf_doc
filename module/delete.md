@@ -8,7 +8,7 @@ Format
 ======
 
 ```.bash
-module [PATH] delete
+module [MPATH] delete
 ```
 
 Command __delete__ does what its name suggests: deletes all files and directories from the module's directory tree. It keeps only the `.json` file.

@@ -8,7 +8,7 @@ Format
 ======
 
 ```.bash
-module [PATH] clean
+module [MPATH] clean
 ```
 
 Command __clean__ removes the files, which have been generated as a result of running simulation or conversion to verilog.

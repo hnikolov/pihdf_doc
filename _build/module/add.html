@@ -78,14 +78,14 @@
     <div class="content">
       <div class="col-md-7" role="main">
         <h2 id="format">Format</h2>
-<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> add <span class="o">[</span><span class="nb">type</span><span class="o">]</span> <span class="s2">&quot;flags&quot;</span>
+<div class="codehilite"><pre>module <span class="o">[</span>MPATH<span class="o">]</span> add <span class="o">[</span><span class="nb">type</span><span class="o">]</span> <span class="s2">&quot;flags&quot;</span>
 </pre></div>
 
 
 <p><strong>[type]</strong> is a known interface type. <strong>flags</strong> surrownded by quotes provide additional required information.</p>
-<p>Command <strong>add</strong> modifies the module's <code>.json</code> file by inserting an entry containing the <strong>[type]</strong> and the additional information. Then, it invokes the update command.</p>
+<p>Command <strong>add</strong> modifies the module's <code>.json</code> file by inserting an entry containing the <strong>[type]</strong> and the additional information. Then, it invokes command <a href="/pyhdf_doc/module/update.html" title="Command 'update'"><strong>update</strong></a>.</p>
 <h2 id="usage">Usage</h2>
-<p>For a <code>hello_world</code> example, to which we want to add a <code>64-bit</code> input <code>STAvln</code>, the usage is: </p>
+<p>For a <code>hello_world</code> example, to which we want to add a <code>64-bit</code> input <code>STAvln</code> called <code>in_1</code>, the usage is: </p>
 <div class="codehilite"><pre><span class="nv">$ </span>module hello_world add STAvln <span class="s2">&quot;-n in_1 -d IN -w 64&quot;</span>
 </pre></div>
 

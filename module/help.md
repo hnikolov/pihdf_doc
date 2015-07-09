@@ -20,15 +20,16 @@ pyhdf               | information about the content of pyhdf
 
 Usage
 =====
+For example,
 
 ```.bash
 $ module help test
 ```
 
-This will print the information about comamnd [test][test].
+This will print the information about command [test][test].
 The last topic uses command __help__ to call the integrated python help function and to get information about the classes of pyhdf.
-In addition, the help information about a particular class of these modules can be obtained by using the `dot notation`.
-For example, the following command will print the information available for the class of the base hand-shake interface of pyhdf:
+In addition, the help information about a particular class of these modules can be obtained by using the `. (dot)` notation.
+For example, the following command will print the information available for the class of the base hand-shake interface of `pyhdf`:
 
 ```.bash
 $ module help pyhdf.HSD

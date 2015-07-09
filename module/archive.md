@@ -8,7 +8,7 @@ Format
 ======
 
 ```.bash
-module [PATH] archive
+module [MPATH] archive
 ```
 
 Command __archive__ uses `tar -czvf` to create a `.tgz` file containing all the files in the module's directory tree.

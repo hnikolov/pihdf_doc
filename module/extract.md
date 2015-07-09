@@ -8,11 +8,11 @@ Format
 ======
 
 ```.bash
-module [PATH] extract
+module [MPATH] extract
 ```
 
 Command __extract__ does the opposite of command [__archive__][archive].
-That is, it uses `tar -xzvf` to untar a `.tgz` file specified by PATH.
+That is, it uses `tar -xzvf` to untar a `.tgz` file specified by _MPATH_.
 
 Usage
 =====

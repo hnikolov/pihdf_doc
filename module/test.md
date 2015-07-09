@@ -8,7 +8,7 @@ Format
 ======
 
 ```.bash
-module [PATH] test [options]
+module [MPATH] test [options]
 ```
 
 Command test executes the unit tests for the given module. The tests are specified in the
@@ -61,4 +61,3 @@ The result is stored in:
 ```
 
 To look at the statistics, open file `index.html` in directory `coverage_html`.
-

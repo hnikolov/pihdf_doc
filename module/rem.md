@@ -8,7 +8,7 @@ Format
 ======
 
 ```.bash
-module [PATH] remove [name]
+module [MPATH] remove [name]
 ```
 
 __\[name\]__ is an interface or parameter name.

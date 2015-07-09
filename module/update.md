@@ -8,7 +8,7 @@ Format
 ======
 
 ```.bash
-$ module [PATH] update [recursive]
+$ module [MPATH] update [recursive]
 ```
 
 Command __update__ re-generates the files, which are created with command [__new__][new]. 
@@ -46,5 +46,3 @@ $ module hello_world update recursive
 
 This command updates all available designs in the directory tree of `hello_world`. 
 Useful when, for example, a new version of `pyhdf` is installed and several module designs need to be updated.
-
-

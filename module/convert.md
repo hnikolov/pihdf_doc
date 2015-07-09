@@ -8,10 +8,10 @@ Format
 ======
 
 ```.bash
-module [PATH] convert
+module [MPATH] convert
 ```
 
-Command convert converts the __myhdl RTL__ description of a module to synthesizable verilog.
+Command __convert__ converts the __myhdl RTL__ description of a module to synthesizable verilog.
 
 Usage
 =====
@@ -21,7 +21,7 @@ For a `hello_world` example,
 $ module hello_world convert
 ```
 
-will generate verilog for the content of the `hello_world_rtl.py` file. This file must contain RTL myhdl descriptions.
+will generate verilog for the content of the `hello_world_rtl.py` file. This file must contain myhdl RTL descriptions.
 The generated verilog files are stored in directory `out`:
 
 ```
