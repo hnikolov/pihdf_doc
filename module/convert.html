@@ -78,18 +78,18 @@
     <div class="content">
       <div class="col-md-7" role="main">
         <h2 id="format">Format</h2>
-<div class="codehilite"><pre>module <span class="o">[</span>PATH<span class="o">]</span> convert
+<div class="codehilite"><pre>module <span class="o">[</span>MPATH<span class="o">]</span> convert
 </pre></div>
 
 
-<p>Command convert converts the <strong>myhdl RTL</strong> description of a module to synthesizable verilog.</p>
+<p>Command <strong>convert</strong> converts the <strong>myhdl RTL</strong> description of a module to synthesizable verilog.</p>
 <h2 id="usage">Usage</h2>
 <p>For a <code>hello_world</code> example,</p>
 <div class="codehilite"><pre><span class="nv">$ </span>module hello_world convert
 </pre></div>
 
 
-<p>will generate verilog for the content of the <code>hello_world_rtl.py</code> file. This file must contain RTL myhdl descriptions.
+<p>will generate verilog for the content of the <code>hello_world_rtl.py</code> file. This file must contain myhdl RTL descriptions.
 The generated verilog files are stored in directory <code>out</code>:</p>
 <div class="codehilite"><pre>└── hello_world
     │
