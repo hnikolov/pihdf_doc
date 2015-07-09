@@ -6,7 +6,7 @@ To locally review the generated site (in the _build directory) before publishing
 
 and point your browser to ``localhost:8000``
 
-`tserve` is availabe at https://github.com/jiffyclub/tservice
+``tserve`` is availabe at https://github.com/jiffyclub/tservice
 
 Install tserve by:
 
