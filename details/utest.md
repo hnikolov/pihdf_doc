@@ -4,7 +4,7 @@ layout: page
 pager: true
 ---
 
-Myframework promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
+`pyhdf` promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
 design module unit tests. Below, we give details about the features and the usage of the testing facilities of `pyhdf`.
 {.lead}
 
@@ -13,9 +13,7 @@ reset and clock inputs, and one parameter (generic):
 
 ![Alt text](../images/hello.png)
 
-__It is important to note that the unit testing of `pyhdf` abstracts low-level details such as `reset` and `clock` manipulation,
-and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining
-input stimuli and expected results (reference data).__
+__It is important to note that the unit testing of `pyhdf` abstracts low-level details such as `reset` and `clock` manipulation, and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining input stimuli and expected results (reference data).__{.lead}
 
 Module files and directory structure
 ====================================
@@ -133,7 +131,8 @@ Test configuration
 
 Configuring the test is done by assigning values to the models and `tb_config` maps.
 
-* __models:__ specifies the implementation model to be used during the test. The format of the map is a pair __"module":model__. There are 3 supported implementation models encoded in the following constants:
+* __models:__ specifies the implementation model to be used during the test. The format of the map is a pair __"module":model__.{.lead}
+    There are 3 supported implementation models encoded in the following constants:
 
 Constant      | Model
 ------------- | -----------------
