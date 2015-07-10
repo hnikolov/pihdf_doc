@@ -181,7 +181,7 @@ Input stimuli generation
 The designer has to define a meaningful input data to be used as stimuli for each unit test. Generating actual data values can be done in many different ways.
 Below, we focus on how these values are made accessible by the module simulation.
 
-In the unit tests of a module, to every input interface, there is a list of payloads. The name of this list is the name of the input interface prefixed with `stim_`. The list items are __\{"payload":value\}__ pairs, i.e., every value is considered as interface payload. For the `hello_world` example, which has one input interface (`rx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration part of the unit test:
+In the unit tests of a module, to every input interface, there is a list of datas. The name of this list is the name of the input interface prefixed with `stim_`. The list items are __\{"data":value\}__ pairs, i.e., every value is considered as interface data. For the `hello_world` example, which has one input interface (`rx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration part of the unit test:
 
 ```.python
 for i in range(30,40):
@@ -201,7 +201,7 @@ Scheduling of stimuli __TODO__
 Reference data generation
 -------------------------
 
-Similar to the input interfaces, to every output interface corresponds a list of payloads which is supposed to contain reference data, i.e., expected results.
+Similar to the input interfaces, to every output interface corresponds a list of datas which is supposed to contain reference data, i.e., expected results.
 The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"data":value\}__ pairs. For the `hello_world` example, 
 which has one output interface (`tx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration part of the unit test:
 
