@@ -4,7 +4,7 @@ layout: page
 pager: true
 ---
 
-Myframework promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
+`pyhdf` promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
 design module unit tests. Below, we give details about the features and the usage of the testing facilities of `pyhdf`.
 {.lead}
 
@@ -13,9 +13,7 @@ reset and clock inputs, and one parameter (generic):
 
 ![Alt text](../images/hello.png)
 
-__It is important to note that the unit testing of `pyhdf` abstracts low-level details such as `reset` and `clock` manipulation,
-and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining
-input stimuli and expected results (reference data).__
+__It is important to note that the unit testing of `pyhdf` abstracts low-level details such as `reset` and `clock` manipulation, and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining input stimuli and expected results (reference data).__{.lead}
 
 Module files and directory structure
 ====================================
@@ -94,7 +92,8 @@ file looks like this:
      def test_000(self):
          """ >>>>>> TEST_000: TO DO: describe the test """
 
-         self.models = {"top":self.BEH}
+         self.models    = {"top":self.BEH}
+         self.tb_params = {"N":10}
          self.tb_config = {"simulation_time":"auto",
                            "cosimulation":False,
                            "trace":False,
@@ -133,7 +132,7 @@ Test configuration
 
 Configuring the test is done by assigning values to the models and `tb_config` maps.
 
-* __models:__ specifies the implementation model to be used during the test. The format of the map is a pair __"module":model__. There are 3 supported implementation models encoded in the following constants:
+* __models:__ specifies the implementation model to be used during the test. The format is a map __{"module":model}__. There are 3 supported implementation models encoded in the following constants:
 
 Constant      | Model
 ------------- | -----------------
@@ -158,6 +157,13 @@ self.models = {"top":self.RTL}
 self.models = {"top":self.RTL, "hello1":self.RTL, "world1":self.BEH}
 ```
 
+
+* __tb_params__: If a module contains (static) parameters, for each test, parameter values have to be provided. The format is a map __{"parameter name":value}__. That is, if our `hello_world` example module has one parameter `N`, assigning value `10` to it in the test is done as follows:
+
+```.python
+self.tb_params = {"N":10}
+```
+
 * __tb_config:__ The test has the following attributes that need to be configured before running a test:
 
 Attribute           | Description
@@ -169,16 +175,6 @@ __fdump__           | If set to `True`, the input stimuli data and the generated
 __ipgi__            | Inter-packet gap of the input stimuli. This option specifies the number of clock cycles between input stimuli. It can be 0 or greater than 0. In case of streaming interfaces (`STAvln`), a data packet is driven to the module without any gaps and the value of `ipgi` specifies the gap between the packets.
 __ipgo__            | Inter-packet gap of collecting results. This option specifies the number of clock cycles between capturing generated results. If set to 0, results are captured as soon as they are generated. In case of streaming interfaces (`STAvln`), a data packet is captured as soon as there is valid data generated. Gaps (of not capturing data) are inserted between capturing different packets. Option `ipgo` can be used for testing bush-back behavior.
 
-Module under test parameters
-----------------------------
-
-If a module contains (static) parameters, for each test, parameter values have to be provided. This is done in a similar way as for the test configuration.
-That is, if our `hello_world` example module has one parameter `N`, assigning value `10` to it in the test is done as follows:
-
-```.python
-self.tb_params = {"N":10}
-```
-
 Input stimuli generation
 ------------------------
 
@@ -189,13 +185,15 @@ In the unit tests of a module, to every input interface, there is a list of payl
 
 ```.python
 for i in range(30,40):
-    self.stim_rx.append({"payload":i})
+    self.stim_rx.append({"data":i})
 ```
 
 Input stimuli to/from files
 ---------------------------
 
-The unit test allows the input stimuli data and the generated results to be stored to files in directory `test/vectors`. This enables other tests to reuse already generated stimuli, submodule tests, etc...`TODO` The files have the name of the corresponding interfaces and extension `.tvr` __fdum=True__.
+The unit test allows the input stimuli data and the generated results to be stored to files in directory `test/vectors`. This enables other tests to reuse already generated stimuli, submodule tests, etc...
+
+`TODO` The files have the name of the corresponding interfaces and extension `.tvr` __fdum=True__.
 
 Scheduling of stimuli __TODO__
 ------------------------------
@@ -204,13 +202,12 @@ Reference data generation
 -------------------------
 
 Similar to the input interfaces, to every output interface corresponds a list of payloads which is supposed to contain reference data, i.e., expected results.
-The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"payload":value\}__ pairs. For the `hello_world` example,
-which has one output interface (`tx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration
-part of the unit test:
+The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"data":value\}__ pairs. For the `hello_world` example, 
+which has one output interface (`tx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration part of the unit test:
 
 ```.python
 for i in range(30,40):
-     self.ref_tx.append({"payload":i})
+     self.ref_tx.append({"data":i})
 ```
 
 In this case, we assume that the `hello_world` module just propagates its input to its output.
