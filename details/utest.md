@@ -185,13 +185,15 @@ In the unit tests of a module, to every input interface, there is a list of payl
 
 ```.python
 for i in range(30,40):
-    self.stim_rx.append({"payload":i})
+    self.stim_rx.append({"data":i})
 ```
 
 Input stimuli to/from files
 ---------------------------
 
-The unit test allows the input stimuli data and the generated results to be stored to files in directory `test/vectors`. This enables other tests to reuse already generated stimuli, submodule tests, etc...`TODO` The files have the name of the corresponding interfaces and extension `.tvr` __fdum=True__.
+The unit test allows the input stimuli data and the generated results to be stored to files in directory `test/vectors`. This enables other tests to reuse already generated stimuli, submodule tests, etc...
+
+`TODO` The files have the name of the corresponding interfaces and extension `.tvr` __fdum=True__.
 
 Scheduling of stimuli __TODO__
 ------------------------------
@@ -200,9 +202,8 @@ Reference data generation
 -------------------------
 
 Similar to the input interfaces, to every output interface corresponds a list of payloads which is supposed to contain reference data, i.e., expected results.
-The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"data":value\}__ pairs. For the `hello_world` example,
-which has one output interface (`tx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration
-part of the unit test:
+The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"data":value\}__ pairs. For the `hello_world` example, 
+which has one output interface (`tx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration part of the unit test:
 
 ```.python
 for i in range(30,40):
