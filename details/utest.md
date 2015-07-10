@@ -132,7 +132,7 @@ Test configuration
 
 Configuring the test is done by assigning values to the models and `tb_config` maps.
 
-* __models:__ specifies the implementation model to be used during the test. The format of the map is a pair __"module":model__. There are 3 supported implementation models encoded in the following constants:
+* __models:__ specifies the implementation model to be used during the test. The format is a map __{"module":model}__. There are 3 supported implementation models encoded in the following constants:
 
 Constant      | Model
 ------------- | -----------------
@@ -158,8 +158,7 @@ self.models = {"top":self.RTL, "hello1":self.RTL, "world1":self.BEH}
 ```
 
 
-* __tb_params__: _Module under test parameters._ If a module contains (static) parameters, for each test, parameter values have to be provided. This is done in a similar way as for the test configuration.
-That is, if our `hello_world` example module has one parameter `N`, assigning value `10` to it in the test is done as follows:
+* __tb_params__: If a module contains (static) parameters, for each test, parameter values have to be provided. The format is a map __{"parameter name":value}__. That is, if our `hello_world` example module has one parameter `N`, assigning value `10` to it in the test is done as follows:
 
 ```.python
 self.tb_params = {"N":10}
