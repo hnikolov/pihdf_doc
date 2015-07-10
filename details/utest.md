@@ -200,13 +200,13 @@ Reference data generation
 -------------------------
 
 Similar to the input interfaces, to every output interface corresponds a list of payloads which is supposed to contain reference data, i.e., expected results.
-The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"payload":value\}__ pairs. For the `hello_world` example,
+The name of this list is the name of the output interface prefixed with `ref_`. The list items are __\{"data":value\}__ pairs. For the `hello_world` example,
 which has one output interface (`tx`) of type `HSD`, assigning 10 values (30 to 39) can be done by the following code inserted after the configuration
 part of the unit test:
 
 ```.python
 for i in range(30,40):
-     self.ref_tx.append({"payload":i})
+     self.ref_tx.append({"data":i})
 ```
 
 In this case, we assume that the `hello_world` module just propagates its input to its output.
