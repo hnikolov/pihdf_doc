@@ -92,7 +92,8 @@ file looks like this:
      def test_000(self):
          """ >>>>>> TEST_000: TO DO: describe the test """
 
-         self.models = {"top":self.BEH}
+         self.models    = {"top":self.BEH}
+         self.tb_params = {"N":10}
          self.tb_config = {"simulation_time":"auto",
                            "cosimulation":False,
                            "trace":False,
@@ -131,8 +132,7 @@ Test configuration
 
 Configuring the test is done by assigning values to the models and `tb_config` maps.
 
-* __models:__ specifies the implementation model to be used during the test. The format of the map is a pair __"module":model__.{.lead}
-    There are 3 supported implementation models encoded in the following constants:
+* __models:__ specifies the implementation model to be used during the test. The format of the map is a pair __"module":model__. There are 3 supported implementation models encoded in the following constants:
 
 Constant      | Model
 ------------- | -----------------
@@ -157,6 +157,14 @@ self.models = {"top":self.RTL}
 self.models = {"top":self.RTL, "hello1":self.RTL, "world1":self.BEH}
 ```
 
+
+* __tb_params__: _Module under test parameters._ If a module contains (static) parameters, for each test, parameter values have to be provided. This is done in a similar way as for the test configuration.
+That is, if our `hello_world` example module has one parameter `N`, assigning value `10` to it in the test is done as follows:
+
+```.python
+self.tb_params = {"N":10}
+```
+
 * __tb_config:__ The test has the following attributes that need to be configured before running a test:
 
 Attribute           | Description
@@ -167,16 +175,6 @@ __trace__           | Enable/disable `.vcd` trace generation. If set to `True`, 
 __fdump__           | If set to `True`, the input stimuli data and the generated results are stored to files in directory `test/vectors`. The files have the name of the corresponding interfaces and extension `.tvr`
 __ipgi__            | Inter-packet gap of the input stimuli. This option specifies the number of clock cycles between input stimuli. It can be 0 or greater than 0. In case of streaming interfaces (`STAvln`), a data packet is driven to the module without any gaps and the value of `ipgi` specifies the gap between the packets.
 __ipgo__            | Inter-packet gap of collecting results. This option specifies the number of clock cycles between capturing generated results. If set to 0, results are captured as soon as they are generated. In case of streaming interfaces (`STAvln`), a data packet is captured as soon as there is valid data generated. Gaps (of not capturing data) are inserted between capturing different packets. Option `ipgo` can be used for testing bush-back behavior.
-
-Module under test parameters
-----------------------------
-
-If a module contains (static) parameters, for each test, parameter values have to be provided. This is done in a similar way as for the test configuration.
-That is, if our `hello_world` example module has one parameter `N`, assigning value `10` to it in the test is done as follows:
-
-```.python
-self.tb_params = {"N":10}
-```
 
 Input stimuli generation
 ------------------------
