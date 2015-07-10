@@ -2,7 +2,8 @@
 title: Details
 layout: index
 content:
-#    - json
+    - json
+    - dir_struct
     - utest
 abstract:
     Details about pyhdf ...

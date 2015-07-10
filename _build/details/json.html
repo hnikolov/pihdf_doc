@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>json file format of a HW module</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="/pyhdf_doc/css/site.css" rel="stylesheet" media="screen">
+    <link href="/pyhdf_doc/css/syntax.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48968311-4', 'jandecaluwe.com');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
+            <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
+            <li><a href="/pyhdf_doc/install.html">Install</a></li>
+            <li><a href="/pyhdf_doc/module/">module</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/pyhdf_doc/details/">Details</a></li>
+            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="/pyhdf_doc/">Home</a></li>
+      <li><a href="/pyhdf_doc/details/">Details</a></li>
+      <li class="active">json file format of a HW module</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>json file format of a HW module</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="content">
+      <div class="col-md-7" role="main">
+        <p class="lead">The input/output interfaces and/or the structure of a HW design module are specified in a <code>.json</code> file. This is the starting point of a new HW module design. Below, we discuss the format of the .json file.</p>
+<p>A HW module .json file has two main sections:</p>
+<ol>
+<li>"design"</li>
+<li>"structure"</li>
+</ol>
+<h3 id="1-design-section-of-a-json-file">1) <strong>design</strong> section of a .json file</h3>
+<p>The <strong>design</strong> section has the following format:</p>
+<div class="codehilite"><pre><span class="s">&quot;design&quot;</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;interfaces&quot;</span> <span class="p">[,</span> <span class="s">&quot;parameters&quot;</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>where</p>
+<ul>
+<li><code>name</code> is the name of a HW module</li>
+<li><code>interfaces</code> is a list of the top-level interfaces</li>
+<li><code>parameters</code> is optional and specifies a list of compile-time constants</li>
+</ul>
+<p>The <strong>design</strong> section is sufficient to create a new HW design module project. A simple, but complete, example of a <code>.json</code> file is given below:</p>
+<div class="codehilite"><pre> <span class="p">{</span>
+     <span class="nt">&quot;design&quot;</span><span class="p">:</span>
+     <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hs_example&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span>
+         <span class="p">[</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Reset&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Clock&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
+         <span class="p">],</span>
+         <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
+         <span class="p">[</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">}</span>
+         <span class="p">]</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+
+
+<p>It specifies a module called <code>hs_example</code>, which has an active high reset input, a clock input, one input and one output hand-shake interfaces of type <code>HSD</code>. In addition, it has one parameter <code>depth</code>, used, e.g., to specify the capacity of an internal FIFO.</p>
+<h3 id="2-section-structure-of-a-json-file">2) Section "structure" of a <code>.json</code> file</h3>
+<p>This section of a <code>.json</code> file gives a structural description of a HW module. It is a convenient way to</p>
+<ul>
+<li>integrate other (i.e., already designed) HW modules into a new compound HW module, or to</li>
+<li>create new design projects for several (nested) HW modules at once. That is, a new sub-project will be created for every module found in this description if it does not exist. The format of the structure section is:</li>
+</ul>
+<div class="codehilite"><pre><span class="s">&quot;structure&quot;</span> <span class="p">:</span> <span class="p">{</span><span class="s">&quot;local_interfaces&quot;</span><span class="p">,</span> <span class="s">&quot;design_modules&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>where</p>
+<ul>
+<li><code>local_interfaces</code> is a list of supported interfaces. These interfaces are used for interconnection of modules</li>
+<li><code>design_modules</code> is a list of HW modules, which are interconnect to form the structure of the top module</li>
+</ul>
+<p>The format of a <code>design_modules</code> part is list of:</p>
+<div class="codehilite"><pre><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;type&quot;</span><span class="p">,</span> <span class="s">&quot;path&quot;</span><span class="p">,</span> <span class="s">&quot;connections&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>where</p>
+<ul>
+<li><code>name</code> is the instance name of a module</li>
+<li><code>type</code> is the type of a module</li>
+<li><code>path</code> is the location to the module design project, relative to the new HW module to be created</li>
+<li><code>connections</code> describes the connections of the (local) module using local and/or global interfaces and parameters</li>
+</ul>
+<p>If <code>path</code> is empty, then a new HW module design project will be created for this module in the source directory structure (see below)</p>
+<h3 id="example">Example</h3>
+<p>Assume, that we would like our HW module <code>hs_example</code> to contain two sub-modules, interconnected with a single <code>HSD</code> interface, then we can use the following <code>hs_example.json</code> file:</p>
+<div class="codehilite"><pre> <span class="p">{</span>
+     <span class="nt">&quot;design&quot;</span><span class="p">:</span>
+     <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hs_example&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span>
+         <span class="p">[</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Reset&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span> <span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Clock&quot;</span> <span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
+         <span class="p">],</span>
+         <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
+         <span class="p">[</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">}</span>
+         <span class="p">]</span>
+     <span class="p">},</span>
+
+     <span class="nt">&quot;_comment&quot;</span><span class="p">:</span> <span class="s2">&quot;You can put some comments in this way&quot;</span><span class="p">,</span>
+
+     <span class="nt">&quot;structure&quot;</span><span class="p">:</span>
+     <span class="p">{</span>
+         <span class="nt">&quot;local_interfaces&quot;</span><span class="p">:</span>
+         <span class="p">[</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">}</span>
+         <span class="p">],</span>
+         <span class="nt">&quot;design_modules&quot;</span><span class="p">:</span>
+         <span class="p">[</span>
+             <span class="p">{</span>
+                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;module1&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mydesign1&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;../mydesign&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;connections&quot;</span><span class="p">:</span>
+                 <span class="p">[</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;rx&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;tx&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;PARAM&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;depth&quot;</span><span class="p">}</span>
+                 <span class="p">]</span>
+             <span class="p">},</span>
+             <span class="p">{</span>
+                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;module2&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mydesign2&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="nt">&quot;connections&quot;</span><span class="p">:</span>
+                 <span class="p">[</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;rx&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">},</span>
+                     <span class="p">{</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">,</span><span class="nt">&quot;local_name&quot;</span><span class="p">:</span><span class="s2">&quot;tx&quot;</span><span class="p">,</span><span class="nt">&quot;connect_to&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">}</span>
+                 <span class="p">]</span>
+             <span class="p">}</span>
+         <span class="p">]</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+
+
+<p>In this example, the (global/top-level) <code>Reset</code> and <code>Clock</code> interfaces are connected to the sub-modules, the <code>rx_hs</code> interface is connected to the input of <code>module1</code>, and the output of <code>module2</code> is connected to the output interface <code>tx_hs</code>. The two modules are connected via a hand-shake interface (<code>hs</code>) which itself contains a FIFO buffer of depth 2. Note also how comments can be added in the .json file if needed.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>json file format of a HW module</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#1-design-section-of-a-json-file">1) design section of a .json file</a></li>
+<li><a href="#2-section-structure-of-a-json-file">2) Section "structure" of a .json file</a></li>
+<li><a href="#example">Example</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+
+  <ul class="pager">
+  </ul>
+
+    <div class="footer">
+        <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+    </div>
+
+
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
