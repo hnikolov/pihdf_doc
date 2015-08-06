@@ -98,29 +98,36 @@ These can be installed with a single command:</p>
 </pre></div>
 
 
-<h2 id="icarus">Icarus</h2>
-<p>For co-simulations, <code>pyhdf</code> uses the Icarus simulator. The version we suggest is <code>jeras-iverilog-bae0243</code>.
-Icarus requires <strong>autoconf, flex, bison, gperf</strong> to be installed. If you do not have them already on your system:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install autoconf flex bison gperf
+<h2 id="co-simulation-and-waveform-viewer">Co-simulation and waveform viewer</h2>
+<p>For co-simulations, <code>pyhdf</code> uses the <strong>Icarus iverilog</strong> simulator. <strong>GTKWave</strong> is the waveform viewer used in <code>pyhdf</code>.
+Install both tools by executing:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install iverilog gtkwave
 </pre></div>
 
 
-<p>To install <strong>Icarus</strong> simulator, download and unzip <code>jeras-iverilog-bae0243.zip</code> file. Then,</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>jeras-iverilog-bae0243
-<span class="nv">$ </span>autoconf
-<span class="nv">$ </span>./configure
-<span class="nv">$ </span>make 
-<span class="nv">$ </span>sudo make install
-<span class="nv">$ </span><span class="nb">cd</span> ..
-</pre></div>
+<!--
+Icarus
+======
+For co-simulations, `pyhdf` uses the Icarus simulator. The version we suggest is `jeras-iverilog-bae0243`.
+Icarus requires __autoconf, flex, bison, gperf__ to be installed. If you do not have them already on your system:
+
+wzxhzdk:4
 
 
-<p><strong>GTKWave</strong> is the waveform viewer used in <code>pyhdf</code>. Install it by:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install gtkwave
-</pre></div>
+To install __Icarus__ simulator, download and unzip `jeras-iverilog-bae0243.zip` file. Then,
 
 
-<h3 id="create-myhdlvpi">Create <code>myhdl.vpi</code></h3>
+wzxhzdk:5
+
+
+__GTKWave__ is the waveform viewer used in `pyhdf`. Install it by:
+
+
+wzxhzdk:6
+
+-->
+
+<h2 id="create-myhdlvpi">Create <code>myhdl.vpi</code></h2>
 <p>For co-simuations, myhdl uses a <code>.vpi</code> interface. To create the <code>myhdl.vpi</code> file used with Icarus, download the source of myhdl. Then,</p>
 <div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd</span> <span class="o">[</span>myhdl-folder<span class="o">]</span>/cosimulation/icarus/
 <span class="nv">$ </span>make 
@@ -153,10 +160,8 @@ You can do this by adding the following line to your .bashrc file:</p>
             <div class="toc">
 <ul>
 <li><a href="#python-packages">Python packages</a></li>
-<li><a href="#icarus">Icarus</a><ul>
+<li><a href="#co-simulation-and-waveform-viewer">Co-simulation and waveform viewer</a></li>
 <li><a href="#create-myhdlvpi">Create myhdl.vpi</a></li>
-</ul>
-</li>
 <li><a href="#pyhdf">pyhdf</a></li>
 </ul>
 </div>

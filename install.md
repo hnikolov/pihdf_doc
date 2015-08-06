@@ -33,6 +33,16 @@ $ sudo apt-get install python-pip python-dev build-essential
 $ sudo pip install --upgrade pip 
 ```
 
+Co-simulation and waveform viewer
+=================================
+For co-simulations, `pyhdf` uses the __Icarus iverilog__ simulator. __GTKWave__ is the waveform viewer used in `pyhdf`.
+Install both tools by executing:
+
+```.bash
+$ sudo apt-get install iverilog gtkwave
+```
+
+<!--
 Icarus
 ======
 For co-simulations, `pyhdf` uses the Icarus simulator. The version we suggest is `jeras-iverilog-bae0243`.
@@ -58,9 +68,10 @@ __GTKWave__ is the waveform viewer used in `pyhdf`. Install it by:
 ```.bash
 $ sudo apt-get install gtkwave
 ```
+-->
 
 Create `myhdl.vpi`
----------------
+==================
 For co-simuations, myhdl uses a `.vpi` interface. To create the `myhdl.vpi` file used with Icarus, download the source of myhdl. Then,
 
 ```.bash
