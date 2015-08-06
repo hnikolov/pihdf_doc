@@ -13,8 +13,8 @@ A HW module .json file has two main sections:
 1. "design"
 2. "structure"
 
-1) __design__ section of a .json file
--------------------------------------
+1) __design__ section of a `.json` file
+---------------------------------------
 
 The __design__ section has the following format:
 
@@ -51,8 +51,8 @@ The __design__ section is sufficient to create a new HW design module project. A
 
 It specifies a module called `hs_example`, which has an active high reset input, a clock input, one input and one output hand-shake interfaces of type `HSD`. In addition, it has one parameter `depth`, used, e.g., to specify the capacity of an internal FIFO.
 
-2) Section "structure" of a `.json` file
-----------------------------------------
+2) __structure__ section of a `.json` file
+------------------------------------------
 
 This section of a `.json` file gives a structural description of a HW module. It is a convenient way to
 
