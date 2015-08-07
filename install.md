@@ -1,5 +1,5 @@
 ---
-title: Install 
+title: Install
 layout: page 
 pager: true
 ---
@@ -99,3 +99,14 @@ export PATH=$PATH:/.pyhdf
 * * *
 Now, you are ready to use `pyhdf`. Check its [front-end tool][module] (called 'module'), the [details][details] about `pyhdf`, and the [turorials][tutorials] that will help you to get started.
 {.lead}
+
+* * *
+Uninstall `pyhdf`
+=================
+To remove `pyhdf` from your system, just use the provided script:
+
+```.bash
+$ cd pyhdf
+$ sudo ./uninstall
+```
+__Note:__ This will remove only `pyhdf`. `MyHDL` and all other installed packages and programs (see above) will remain on your system.
