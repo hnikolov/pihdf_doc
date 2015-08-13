@@ -33,13 +33,12 @@ $ sudo apt-get install python-pip python-dev build-essential
 $ sudo pip install --upgrade pip 
 ```
 
-Co-simulation and waveform viewer
-=================================
-For co-simulations, `pyhdf` uses the __Icarus iverilog__ simulator. __GTKWave__ is the waveform viewer used in `pyhdf`.
-Install both tools by executing:
+Co-simulation, waveform and dotty viewers
+=========================================
+For co-simulations, `pyhdf` uses the __Icarus iverilog__ simulator. __GTKWave__ is the waveform viewer used in `pyhdf`. For structured designs, `pyhdf` generates also the design topology (i.e., HW modules interconnections) as a `.dot` file. To viasualize it, you can use `xdot` program. Install all programs by executing:
 
 ```.bash
-$ sudo apt-get install iverilog gtkwave
+$ sudo apt-get install iverilog gtkwave xdot
 ```
 
 <!--
