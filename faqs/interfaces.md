@@ -45,7 +45,7 @@ The use of `HSD` interface is twofold:
 
 To use command `add`:
 ```.bash
-module PATH add HSD "-n rx_hs -w 64 -d IN -p True"
+$ module PATH add HSD "-n rx_hs -w 64 -d IN -p True"
 ```
 
 2) `HSD` can be used as a container interface, in which data is represented as a set of fields. Fields are given in file `data_fields.py`, part of `pyhdf`.
@@ -56,7 +56,7 @@ A `push` behavior (optional) can also be specified. The default is "False", ther
 ```
 To use command `add`:
 ```.bash
-module PATH add HSD "-n tx_port_flds -d OUT -l port_fields"
+$ module PATH add HSD "-n tx_port_flds -d OUT -l port_fields"
 ```
 
 STAvln
@@ -91,7 +91,7 @@ __Example:__ To add a BUS called `axi4_slave` of type `AXI4LS` to a HW module de
 Alternatively, use command `add` as follows:
 
 ```.bash
-module MPATH add Bus "-n axi4_slave -i AXI4LS"
+$ module MPATH add Bus "-n axi4_slave -i AXI4LS"
 ```
 __Note:__ Since a BUS may contain both, input and output interfaces, tag `direction` is not used.
 
@@ -106,8 +106,9 @@ __Example:__ To add a parameter `par_1` with a default value `10` to a HW module
 ```
 
 To use command `add`, from a terminal:
-```
-module MPATH add Parameter "-n par_1 -v 10"
+
+```.bash
+$ module MPATH add Parameter "-n par_1 -v 10"
 ```
 
 Again, `MPATH` is the path to the HW module's root directory.
