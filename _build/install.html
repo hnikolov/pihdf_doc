@@ -98,10 +98,9 @@ These can be installed with a single command:</p>
 </pre></div>
 
 
-<h2 id="co-simulation-and-waveform-viewer">Co-simulation and waveform viewer</h2>
-<p>For co-simulations, <code>pyhdf</code> uses the <strong>Icarus iverilog</strong> simulator. <strong>GTKWave</strong> is the waveform viewer used in <code>pyhdf</code>.
-Install both tools by executing:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install iverilog gtkwave
+<h2 id="co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</h2>
+<p>For co-simulations, <code>pyhdf</code> uses the <strong>Icarus iverilog</strong> simulator. <strong>GTKWave</strong> is the waveform viewer used in <code>pyhdf</code>. For structured designs, <code>pyhdf</code> generates also the design topology (i.e., HW modules interconnections) as a <code>.dot</code> file. To viasualize it, you can use <code>xdot</code> program. Install all programs by executing:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install iverilog gtkwave xdot
 </pre></div>
 
 
@@ -169,7 +168,7 @@ You can do this by adding the following line to your .bashrc file:</p>
             <div class="toc">
 <ul>
 <li><a href="#python-packages">Python packages</a></li>
-<li><a href="#co-simulation-and-waveform-viewer">Co-simulation and waveform viewer</a></li>
+<li><a href="#co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</a></li>
 <li><a href="#create-myhdlvpi">Create myhdl.vpi</a></li>
 <li><a href="#pyhdf">pyhdf</a></li>
 <li><a href="#uninstall-pyhdf">Uninstall pyhdf</a></li>
