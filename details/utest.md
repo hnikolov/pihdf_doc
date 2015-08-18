@@ -92,6 +92,7 @@ file looks like this:
      def test_000(self):
          """ >>>>>> TEST_000: TO DO: describe the test """
 
+         self.verbosity = False
          self.models    = {"top":self.BEH}
          self.tb_params = {"N":10}
          self.tb_config = {"simulation_time":"auto",
@@ -130,7 +131,13 @@ The description has to be filled by the designer of the test.
 Test configuration
 ------------------
 
-Configuring the test is done by assigning values to the `models`, `tb_params`, and `tb_config` maps.
+Configuring the test is done by setting `verbosity`, assigning values to the `models`, `tb_params`, and `tb_config` maps.
+
+* __verbosity__: If verbosity is set,
+```.python
+self.verbosity = True
+```
+then more information about the particular test execution is reported, e.g., the `.vcd` file in which traces are generated, and the test simulation time.
 
 * __models:__ specifies the implementation model to be used during the test. The format is a map __{"module":model}__. There are 3 supported implementation models encoded in the following constants:
 
