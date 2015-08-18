@@ -157,6 +157,7 @@ file looks like this:</p>
      <span class="k">def</span> <span class="nf">test_000</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
          <span class="sd">&quot;&quot;&quot; &gt;&gt;&gt;&gt;&gt;&gt; TEST_000: TO DO: describe the test &quot;&quot;&quot;</span>
 
+         <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="bp">False</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">models</span>    <span class="o">=</span> <span class="p">{</span><span class="s">&quot;top&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">BEH</span><span class="p">}</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">tb_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;N&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">tb_config</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;simulation_time&quot;</span><span class="p">:</span><span class="s">&quot;auto&quot;</span><span class="p">,</span>
@@ -189,7 +190,15 @@ Then, the test runs a simulation of the module under test using the provided sti
 
 <p>The description has to be filled by the designer of the test.</p>
 <h3 id="test-configuration">Test configuration</h3>
-<p>Configuring the test is done by assigning values to the <code>models</code>, <code>tb_params</code>, and <code>tb_config</code> maps.</p>
+<p>Configuring the test is done by setting <code>verbosity</code>, assigning values to the <code>models</code>, <code>tb_params</code>, and <code>tb_config</code> maps.</p>
+<ul>
+<li><strong>verbosity</strong>: If verbosity is set,</li>
+</ul>
+<div class="codehilite"><pre><span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+
+
+<p>then more information about the particular test execution is reported, e.g., the <code>.vcd</code> file in which traces are generated, and the test simulation time.</p>
 <ul>
 <li><strong>models:</strong> specifies the implementation model to be used during the test. The format is a map <strong>{"module":model}</strong>. There are 3 supported implementation models encoded in the following constants:</li>
 </ul>
