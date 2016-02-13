@@ -45,4 +45,4 @@ $ module hello_world update recursive
 ```
 
 This command updates all available designs in the directory tree of `hello_world`. 
-Useful when, for example, a new version of `pyhdf` is installed and several module designs need to be updated.
+Useful when, for example, a new version of `pihdf` is installed and several module designs need to be updated.

@@ -4,23 +4,23 @@ layout: page
 pager: true
 ---
 
-Below, we present the steps to instal `pyhdf` with all the dependencies, considering Linux Ubuntu distribution.
+Below, we present the steps to instal `pihdf` with all the dependencies, considering Linux Ubuntu distribution.
 {.lead}
 
-MacOS is supported as well. However, we do not provide details about how to install `pyhdf` on MacOS.
+MacOS is supported as well. However, we do not provide details about how to install `pihdf` on MacOS.
 
-Installing `pyhdf` is simple as
+Installing `pihdf` is simple as
 {.lead}
 
 ```.bash
-$ cd pyhdf
+$ cd pihdf
 $ sudo ./install
 ```
 However, there are some dependences as well. Please check them below.
 
 Python packages
 ===============
-`pyhdf` needs the following python packages: __myhdl, simplejson, coverage, nose__. 
+`pihdf` needs the following python packages: __myhdl, simplejson, coverage, nose__. 
 These can be installed with a single command:
 
 ```.bash
@@ -35,7 +35,7 @@ $ sudo pip install --upgrade pip
 
 Co-simulation, waveform and dotty viewers
 =========================================
-For co-simulations, `pyhdf` uses the __Icarus iverilog__ simulator. __GTKWave__ is the waveform viewer used in `pyhdf`. For structured designs, `pyhdf` generates also the design topology (i.e., HW modules interconnections) as a `.dot` file. To viasualize it, you can use `xdot` program. Install all programs by executing:
+For co-simulations, `pihdf` uses the __Icarus iverilog__ simulator. __GTKWave__ is the waveform viewer used in `pihdf`. For structured designs, `pihdf` generates also the design topology (i.e., HW modules interconnections) as a `.dot` file. To viasualize it, you can use `xdot` program. Install all programs by executing:
 
 ```.bash
 $ sudo apt-get install iverilog gtkwave xdot
@@ -44,7 +44,7 @@ $ sudo apt-get install iverilog gtkwave xdot
 <!--
 Icarus
 ======
-For co-simulations, `pyhdf` uses the Icarus simulator. The version we suggest is `jeras-iverilog-bae0243`.
+For co-simulations, `pihdf` uses the Icarus simulator. The version we suggest is `jeras-iverilog-bae0243`.
 Icarus requires __autoconf, flex, bison, gperf__ to be installed. If you do not have them already on your system:
 
 ```.bash
@@ -62,7 +62,7 @@ $ sudo make install
 $ cd ..
 ```
 
-__GTKWave__ is the waveform viewer used in `pyhdf`. Install it by:
+__GTKWave__ is the waveform viewer used in `pihdf`. Install it by:
 
 ```.bash
 $ sudo apt-get install gtkwave
@@ -78,34 +78,34 @@ $ cd [myhdl-folder]/cosimulation/icarus/
 $ make 
 ```
 
-pyhdf
+pihdf
 =====
 
-Download and unzip `pyhdf`. Then,
+Download and unzip `pihdf`. Then,
 
 ```.bash
-$ cd pyhdf
+$ cd pihdf
 $ sudo ./install
 ```
 
-Copy the generated `myhdl.vpi` file to directory `/.pyhdf`. Finally, add directory `/.pyhdf` to _PATH_.
+Copy the generated `myhdl.vpi` file to directory `/.pihdf`. Finally, add directory `/.pihdf` to _PATH_.
 You can do this by adding the following line to your .bashrc file:
 
 ```.bash
-export PATH=$PATH:/.pyhdf
+export PATH=$PATH:/.pihdf
 ```
 
 * * *
-Now, you are ready to use `pyhdf`. Check its [front-end tool][module] (called 'module'), the [details][details] about `pyhdf`, and the [turorials][tutorials] that will help you to get started.
+Now, you are ready to use `pihdf`. Check its [front-end tool][module] (called 'module'), the [details][details] about `pihdf`, and the [turorials][tutorials] that will help you to get started.
 {.lead}
 
 * * *
-Uninstall `pyhdf`
+Uninstall `pihdf`
 =================
-To remove `pyhdf` from your system, just use the provided script:
+To remove `pihdf` from your system, just use the provided script:
 
 ```.bash
-$ cd pyhdf
+$ cd pihdf
 $ sudo ./uninstall
 ```
-__Note:__ This will remove only `pyhdf`. `MyHDL` and all other installed packages and programs (see above) will remain on your system.
+__Note:__ This will remove only `pihdf`. `MyHDL` and all other installed packages and programs (see above) will remain on your system.

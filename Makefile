@@ -7,7 +7,7 @@ build:
 	touch _build/.nojekyll
 
 serve:
-	tserve --prefix pyhdf_doc _build
+	tserve --prefix pihdf_doc _build
 
 publish:
 	git subtree push --prefix _build origin gh-pages

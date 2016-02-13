@@ -4,8 +4,8 @@ layout: page
 pager: true
 ---
 
-`pyhdf` promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
-design module unit tests. Below, we give details about the features and the usage of the testing facilities of `pyhdf`.
+`pihdf` promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
+design module unit tests. Below, we give details about the features and the usage of the testing facilities of `pihdf`.
 {.lead}
 
 To ease the discussion, assume a simple `hello_world` module design, which has one input and one output interface (HSD type),
@@ -13,7 +13,7 @@ reset and clock inputs, and one parameter (generic):
 
 ![Alt text](../images/hello.png)
 
-__It is important to note that the unit testing of `pyhdf` abstracts low-level details such as `reset` and `clock` manipulation, and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining input stimuli and expected results (reference data).__{.lead}
+__It is important to note that the unit testing of `pihdf` abstracts low-level details such as `reset` and `clock` manipulation, and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining input stimuli and expected results (reference data).__{.lead}
 
 Module files and directory structure
 ====================================

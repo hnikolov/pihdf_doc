@@ -24,5 +24,5 @@ For a `hello_world` example, to which we want to add a `64-bit` input `STAvln` c
 $ module hello_world add STAvln "-n in_1 -d IN -w 64"
 ```
 
-Check the interfaces section of `pyhdf` for examples of how to add a known interface.
+Check the interfaces section of `pihdf` for examples of how to add a known interface.
 

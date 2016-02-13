@@ -72,7 +72,7 @@ In this example, the (global/top-level) `Reset` and `Clock` interfaces are conne
 Generated directory structure
 =============================
 
-The .json file above is sufficient to create a structured design in `pyhdf`:
+The .json file above is sufficient to create a structured design in `pihdf`:
 
 ```.bash
 $ module hs_example new

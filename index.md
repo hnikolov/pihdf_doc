@@ -1,5 +1,5 @@
 ---
-title: pyhdf
+title: pihdf
 layout: home
 content:
     - introduction

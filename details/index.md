@@ -6,6 +6,6 @@ content:
     - dir_struct
     - utest
 abstract:
-    Details about pyhdf ...
+    Details about pihdf ...
 ---
 

@@ -4,7 +4,7 @@ layout: page
 pager: true
 ---
 
-Below, we show the supported interfaces that can be used in `pyhdf` to build and connect HW modules.
+Below, we show the supported interfaces that can be used in `pihdf` to build and connect HW modules.
 {.lead}
 
 All interfaces (except `Reset` and `Clock`) can be used as input/output global interfaces or local interfaces to
@@ -48,7 +48,7 @@ To use command `add`:
 $ module PATH add HSD "-n rx_hs -w 64 -d IN -p True"
 ```
 
-2) `HSD` can be used as a container interface, in which data is represented as a set of fields. Fields are given in file `data_fields.py`, part of `pyhdf`.
+2) `HSD` can be used as a container interface, in which data is represented as a set of fields. Fields are given in file `data_fields.py`, part of `pihdf`.
 A `push` behavior (optional) can also be specified. The default is "False", therefore, if `push` behavior is not needed, this tag can be omitted as in the following example:
 
 ```.json
@@ -81,7 +81,7 @@ __Note:__ Tag `push` is not allowed with `STAvln` interfaces.
 Bus
 ---
 A container interface consisting of a set of supported interfaces.
-The supported interfaces are given in file `data_fields.py`, part of `pyhdf`.
+The supported interfaces are given in file `data_fields.py`, part of `pihdf`.
 
 __Example:__ To add a BUS called `axi4_slave` of type `AXI4LS` to a HW module design, add the following line to section `interfaces` of the corresponding `.json` file:
 

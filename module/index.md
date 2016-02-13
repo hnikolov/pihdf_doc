@@ -16,6 +16,6 @@ content:
     - extract
     - help
 abstract:
-    A command-line front-end tool of pyhdf
+    A command-line front-end tool of pihdf
 ---
 
