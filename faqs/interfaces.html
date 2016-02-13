@@ -7,8 +7,8 @@
     <!-- Bootstrap -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-    <link href="/pyhdf_doc/css/site.css" rel="stylesheet" media="screen">
-    <link href="/pyhdf_doc/css/syntax.css" rel="stylesheet" media="screen">
+    <link href="/pihdf_doc/css/site.css" rel="stylesheet" media="screen">
+    <link href="/pihdf_doc/css/syntax.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,21 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
+          <a class="navbar-brand" href="/pihdf_doc/">pihdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
-            <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li><a href="/pyhdf_doc/install.html">Install</a></li>
-            <li><a href="/pyhdf_doc/module/">module</a></li>
+            <li><a href="/pihdf_doc/introduction.html">Introduction</a></li>
+            <li><a href="/pihdf_doc/concepts.html">Concepts</a></li>
+            <li><a href="/pihdf_doc/install.html">Install</a></li>
+            <li><a href="/pihdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/pyhdf_doc/details/">Details</a></li>
-            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
-            <li class="active"><a href="/pyhdf_doc/faqs/">FAQs</a></li>
+            <li><a href="/pihdf_doc/details/">Details</a></li>
+            <li><a href="/pihdf_doc/tutorials/">Tutorials</a></li>
+            <li class="active"><a href="/pihdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -64,8 +64,8 @@
 <div class="container">
 
   <ol class="breadcrumb">
-    <li><a href="/pyhdf_doc/">Home</a></li>
-      <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
+    <li><a href="/pihdf_doc/">Home</a></li>
+      <li><a href="/pihdf_doc/faqs/">FAQs</a></li>
       <li class="active">How to define interfaces in HW design modules?</li>
   </ol>
 
@@ -77,7 +77,7 @@
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <p class="lead">Below, we show the supported interfaces that can be used in <code>pyhdf</code> to build and connect HW modules.</p>
+        <p class="lead">Below, we show the supported interfaces that can be used in <code>pihdf</code> to build and connect HW modules.</p>
 <p>All interfaces (except <code>Reset</code> and <code>Clock</code>) can be used as input/output global interfaces or local interfaces to
 connect HW sub-modules. When used as local interfaces, optionally, a size of a fifo buffer can be specified
 by using <code>"buf_size": "value"</code> pair. For a local interface, tag <code>"direction"</code> is not allowed.
@@ -109,7 +109,7 @@ global interface and the format of command <code>add</code>.</p>
 </pre></div>
 
 
-<p>2) <code>HSD</code> can be used as a container interface, in which data is represented as a set of fields. Fields are given in file <code>data_fields.py</code>, part of <code>pyhdf</code>.
+<p>2) <code>HSD</code> can be used as a container interface, in which data is represented as a set of fields. Fields are given in file <code>data_fields.py</code>, part of <code>pihdf</code>.
 A <code>push</code> behavior (optional) can also be specified. The default is "False", therefore, if <code>push</code> behavior is not needed, this tag can be omitted as in the following example:</p>
 <div class="codehilite"><pre><span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tx_port_flds&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;HSD&quot;</span><span class="p">,</span> <span class="nt">&quot;direction&quot;</span><span class="p">:</span> <span class="s2">&quot;OUT&quot;</span><span class="p">,</span> <span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;port_fields&quot;</span> <span class="p">}</span>
 </pre></div>
@@ -137,7 +137,7 @@ A packet is defined with start-of-packet (<code>sop</code>) and end-of-packet (<
 <p><strong>Note:</strong> Tag <code>push</code> is not allowed with <code>STAvln</code> interfaces.</p>
 <h3 id="bus">Bus</h3>
 <p>A container interface consisting of a set of supported interfaces.
-The supported interfaces are given in file <code>data_fields.py</code>, part of <code>pyhdf</code>.</p>
+The supported interfaces are given in file <code>data_fields.py</code>, part of <code>pihdf</code>.</p>
 <p><strong>Example:</strong> To add a BUS called <code>axi4_slave</code> of type <code>AXI4LS</code> to a HW module design, add the following line to section <code>interfaces</code> of the corresponding <code>.json</code> file:</p>
 <div class="codehilite"><pre><span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;axi4_slave&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Bus&quot;</span><span class="p">,</span> <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span> <span class="s2">&quot;AXI4LS&quot;</span> <span class="p">}</span>
 </pre></div>

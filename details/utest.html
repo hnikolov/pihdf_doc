@@ -7,8 +7,8 @@
     <!-- Bootstrap -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-    <link href="/pyhdf_doc/css/site.css" rel="stylesheet" media="screen">
-    <link href="/pyhdf_doc/css/syntax.css" rel="stylesheet" media="screen">
+    <link href="/pihdf_doc/css/site.css" rel="stylesheet" media="screen">
+    <link href="/pihdf_doc/css/syntax.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,21 +39,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/pyhdf_doc/">pyhdf</a>
+          <a class="navbar-brand" href="/pihdf_doc/">pihdf</a>
         </div>
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/pyhdf_doc/introduction.html">Introduction</a></li>
-            <li><a href="/pyhdf_doc/concepts.html">Concepts</a></li>
-            <li><a href="/pyhdf_doc/install.html">Install</a></li>
-            <li><a href="/pyhdf_doc/module/">module</a></li>
+            <li><a href="/pihdf_doc/introduction.html">Introduction</a></li>
+            <li><a href="/pihdf_doc/concepts.html">Concepts</a></li>
+            <li><a href="/pihdf_doc/install.html">Install</a></li>
+            <li><a href="/pihdf_doc/module/">module</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="/pyhdf_doc/details/">Details</a></li>
-            <li><a href="/pyhdf_doc/tutorials/">Tutorials</a></li>
-            <li><a href="/pyhdf_doc/faqs/">FAQs</a></li>
+            <li class="active"><a href="/pihdf_doc/details/">Details</a></li>
+            <li><a href="/pihdf_doc/tutorials/">Tutorials</a></li>
+            <li><a href="/pihdf_doc/faqs/">FAQs</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -64,8 +64,8 @@
 <div class="container">
 
   <ol class="breadcrumb">
-    <li><a href="/pyhdf_doc/">Home</a></li>
-      <li><a href="/pyhdf_doc/details/">Details</a></li>
+    <li><a href="/pihdf_doc/">Home</a></li>
+      <li><a href="/pihdf_doc/details/">Details</a></li>
       <li class="active">Unit testing of design modules</li>
   </ol>
 
@@ -77,12 +77,12 @@
 
     <div class="content">
       <div class="col-md-7" role="main">
-        <p class="lead"><code>pyhdf</code> promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
-design module unit tests. Below, we give details about the features and the usage of the testing facilities of <code>pyhdf</code>.</p>
+        <p class="lead"><code>pihdf</code> promotes a test-driven design approach; It facilitates to a great extent the creation and execution of
+design module unit tests. Below, we give details about the features and the usage of the testing facilities of <code>pihdf</code>.</p>
 <p>To ease the discussion, assume a simple <code>hello_world</code> module design, which has one input and one output interface (HSD type),
 reset and clock inputs, and one parameter (generic):</p>
 <p><img alt="Alt text" src="../images/hello.png" /></p>
-<p><strong class="lead">It is important to note that the unit testing of <code>pyhdf</code> abstracts low-level details such as <code>reset</code> and <code>clock</code> manipulation, and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining input stimuli and expected results (reference data).</strong></p>
+<p><strong class="lead">It is important to note that the unit testing of <code>pihdf</code> abstracts low-level details such as <code>reset</code> and <code>clock</code> manipulation, and data synchronization with these signals. As a result, the designer can focus more on the purpose of the test by determining input stimuli and expected results (reference data).</strong></p>
 <h2 id="module-files-and-directory-structure">Module files and directory structure</h2>
 <p>Starting from a <code>hello_world.json</code> specification file of the module, an empty unit test template is automatically created when running command <strong>new</strong>.</p>
 <div class="codehilite"><pre><span class="nv">$ </span>module hello_world new
@@ -110,7 +110,7 @@ reset and clock inputs, and one parameter (generic):</p>
 </pre></div>
 
 
-<p>The module directory structure is discussed in <a href="/pyhdf_doc/details/dir_struct.html" title="HW module directory structure">HW module directory structure</a>. Here, we focus only on directory <code>test</code>, which contains all the files related to testing:</p>
+<p>The module directory structure is discussed in <a href="/pihdf_doc/details/dir_struct.html" title="HW module directory structure">HW module directory structure</a>. Here, we focus only on directory <code>test</code>, which contains all the files related to testing:</p>
 <ul>
 <li>
 <p>The <code>hello_world.gtkw</code> and <code>hello_world_cosim.gtkw</code> files are used to visualize the wave forms (timing diagrams) stored in corresponding <code>.vcd</code> files (using <strong>GTKWave</strong>).
@@ -346,7 +346,7 @@ the reference data. After running the simulation, this function checks the gener
   </div>
 
   <ul class="pager">
-    <li class="previous"><a href="/pyhdf_doc/details/dir_struct.html">&larr; HW module directory structure</a></li>
+    <li class="previous"><a href="/pihdf_doc/details/dir_struct.html">&larr; HW module directory structure</a></li>
   </ul>
 
     <div class="footer">
