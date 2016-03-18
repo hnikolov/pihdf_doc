@@ -131,7 +131,7 @@ reset and clock inputs, and one parameter (generic):</p>
 </ul>
 <h2 id="unit-test-structure">Unit test structure</h2>
 <p>In this section, we focus on file <code>utest_hello_world.py</code> and discuss the structure of a unit test. As an example, we consider a <code>hello_world</code> design,
-which has one input and one output interfaces (in addition to <em>clk</em> and <em>reset</em>). After running command <strong>new</strong>, the generated <code>utest_hello_world.py</code>
+which has one input and one output interfaces (in addition to <mark>clk</mark> and <mark>reset</mark>). After running command <strong>new</strong>, the generated <code>utest_hello_world.py</code>
 file looks like this:</p>
 <div class="codehilite"><pre> <span class="kn">import</span> <span class="nn">unittest</span>
  <span class="kn">from</span> <span class="nn">mylib</span> <span class="kn">import</span> <span class="o">*</span>
@@ -212,11 +212,11 @@ Then, the test runs a simulation of the module under test using the provided sti
 <tbody>
 <tr>
 <td><strong>self.BEH</strong></td>
-<td><em>Behaviour</em>, specified in pure <strong>Python</strong></td>
+<td><mark>Behaviour</mark>, specified in pure <strong>Python</strong></td>
 </tr>
 <tr>
 <td><strong>self.RTL</strong></td>
-<td><em>Register Transfer Level (RTL)</em>, specified in convertible <strong>MyHDL</strong> (Python)</td>
+<td><mark>Register Transfer Level (RTL)</mark>, specified in convertible <strong>MyHDL</strong> (Python)</td>
 </tr>
 <tr>
 <td><strong>self.VRLG</strong></td>
@@ -346,7 +346,6 @@ the reference data. After running the simulation, this function checks the gener
   </div>
 
   <ul class="pager">
-    <li class="previous"><a href="/pihdf_doc/details/dir_struct.html">&larr; HW module directory structure</a></li>
   </ul>
 
     <div class="footer">

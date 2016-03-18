@@ -78,53 +78,46 @@
       <div class="col-md-7" role="main">
         <p class="lead">Below, we present the steps to instal <code>pihdf</code> with all the dependencies, considering Linux Ubuntu distribution.</p>
 <p>MacOS is supported as well. However, we do not provide details about how to install <code>pihdf</code> on MacOS.</p>
-<p class="lead">Installing <code>pihdf</code> is simple as</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
-<span class="nv">$ </span>sudo ./install
+<p class="lead">Work in progress: The goal is to be able to install <code>pihdf</code> using pip:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo pip install pihdf
 </pre></div>
 
 
-<p>However, there are some dependences as well. Please check them below.</p>
-<h2 id="python-packages">Python packages</h2>
-<p><code>pihdf</code> needs the following python packages: <strong>myhdl, simplejson, coverage, nose</strong>. 
-These can be installed with a single command:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo pip install myhdl simplejson coverage nose -I
-</pre></div>
-
-
-<p>If you do not have <code>pip</code> installed:</p>
+<p><strong>Note:</strong> If you do not have <code>pip</code> installed:</p>
 <div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install python-pip python-dev build-essential 
 <span class="nv">$ </span>sudo pip install --upgrade pip 
 </pre></div>
 
 
+<h3 id="install-pihdf-from-source">Install <code>pihdf</code> from source</h3>
+<p>For now, instal <code>pyhdf</code> from <a href="https://github.com/hnikolov/pihdf">https://github.com/hnikolov/pihdf</a>. Download and unzip, or clone <code>pihdf</code>. Then:</p>
+<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
+<span class="nv">$ </span>sudo python setup.py develop
+</pre></div>
+
+
+<p>Option <code>develop</code> installs <code>pyhdf</code> in 'editable' mode. You can use also the option 'install'. However, using the option 'develop' makes it easy to un-install <code>pihdf</code> (should you decide to do so).</p>
+<h3 id="un-install-pihdf">Un-install <code>pihdf</code></h3>
+<p>To un-install <code>pihdf</code>:</p>
+<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
+<span class="nv">$ </span>sudo python setup.py develop --uninstall
+</pre></div>
+
+
+<p>Then, remove the command-line script <code>module</code> from its location:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>which module <span class="p">|</span> xargs sudo rm
+</pre></div>
+
+
+<h2 id="dependences-on-python-packages">Dependences on Python packages</h2>
+<p><code>pihdf</code> depends on the following python packages: <strong>myhdl, simplejson, coverage, nose</strong>. 
+These will be installed during the installation of <code>pihdf</code> if not present on your system. </p>
+<p><strong>Note:</strong> These packages will <strong>not</strong> be un-installed if you un-install <code>pyhdf</code>.</p>
 <h2 id="co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</h2>
 <p>For co-simulations, <code>pihdf</code> uses the <strong>Icarus iverilog</strong> simulator. <strong>GTKWave</strong> is the waveform viewer used in <code>pihdf</code>. For structured designs, <code>pihdf</code> generates also the design topology (i.e., HW modules interconnections) as a <code>.dot</code> file. To viasualize it, you can use <code>xdot</code> program. Install all programs by executing:</p>
 <div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install iverilog gtkwave xdot
 </pre></div>
 
-
-<!--
-Icarus
-======
-For co-simulations, `pihdf` uses the Icarus simulator. The version we suggest is `jeras-iverilog-bae0243`.
-Icarus requires __autoconf, flex, bison, gperf__ to be installed. If you do not have them already on your system:
-
-wzxhzdk:4
-
-
-To install __Icarus__ simulator, download and unzip `jeras-iverilog-bae0243.zip` file. Then,
-
-
-wzxhzdk:5
-
-
-__GTKWave__ is the waveform viewer used in `pihdf`. Install it by:
-
-
-wzxhzdk:6
-
--->
 
 <h2 id="create-myhdlvpi">Create <code>myhdl.vpi</code></h2>
 <p>For co-simuations, myhdl uses a <code>.vpi</code> interface. To create the <code>myhdl.vpi</code> file used with Icarus, download the source of myhdl. Then,</p>
@@ -133,30 +126,9 @@ __GTKWave__ is the waveform viewer used in `pihdf`. Install it by:
 </pre></div>
 
 
-<h2 id="pihdf">pihdf</h2>
-<p>Download and unzip <code>pihdf</code>. Then,</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
-<span class="nv">$ </span>sudo ./install
-</pre></div>
-
-
-<p>Copy the generated <code>myhdl.vpi</code> file to directory <code>/.pihdf</code>. Finally, add directory <code>/.pihdf</code> to <em>PATH</em>.
-You can do this by adding the following line to your .bashrc file:</p>
-<div class="codehilite"><pre><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/.pihdf
-</pre></div>
-
-
+<p><strong>Note:</strong> The file 'myhdl.vpi has to be copied to folder '/.pihdf'</p>
 <hr />
 <p class="lead">Now, you are ready to use <code>pihdf</code>. Check its <a href="/pihdf_doc/module/" title="module">front-end tool</a> (called 'module'), the <a href="/pihdf_doc/details/" title="Details">details</a> about <code>pihdf</code>, and the <a href="/pihdf_doc/tutorials/" title="Tutorials">turorials</a> that will help you to get started.</p>
-<hr />
-<h2 id="uninstall-pihdf">Uninstall <code>pihdf</code></h2>
-<p>To remove <code>pihdf</code> from your system, just use the provided script:</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
-<span class="nv">$ </span>sudo ./uninstall
-</pre></div>
-
-
-<p><strong>Note:</strong> This will remove only <code>pihdf</code>. <code>MyHDL</code> and all other installed packages and programs (see above) will remain on your system.</p>
       </div>
     </div>
 
@@ -167,11 +139,11 @@ You can do this by adding the following line to your .bashrc file:</p>
             <a href="#"><strong>Install</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#python-packages">Python packages</a></li>
+<li><a href="#install-pihdf-from-source">Install pihdf from source</a></li>
+<li><a href="#un-install-pihdf">Un-install pihdf</a></li>
+<li><a href="#dependences-on-python-packages">Dependences on Python packages</a></li>
 <li><a href="#co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</a></li>
 <li><a href="#create-myhdlvpi">Create myhdl.vpi</a></li>
-<li><a href="#pihdf">pihdf</a></li>
-<li><a href="#uninstall-pihdf">Uninstall pihdf</a></li>
 </ul>
 </div>
 
