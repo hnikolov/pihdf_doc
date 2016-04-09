@@ -25,7 +25,7 @@ $ sudo pip install --upgrade pip
 Install `pihdf` from source
 ---------------------------
 
-For now, instal `pyhdf` from <https://github.com/hnikolov/pihdf>. Download and unzip, or clone `pihdf`. Then:
+You can also instal `pyhdf` from source: <https://github.com/hnikolov/pihdf>. Download and unzip, or clone `pihdf`. Then:
 ```.bash
 $ cd pihdf
 $ sudo python setup.py develop

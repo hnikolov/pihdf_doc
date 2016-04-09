@@ -78,7 +78,7 @@
       <div class="col-md-7" role="main">
         <p class="lead">Below, we present the steps to instal <code>pihdf</code> with all the dependencies, considering Linux Ubuntu distribution.</p>
 <p>MacOS is supported as well. However, we do not provide details about how to install <code>pihdf</code> on MacOS.</p>
-<p class="lead">Work in progress: The goal is to be able to install <code>pihdf</code> using pip:</p>
+<h2 id="install-pihdf-using-pip">Install <code>pihdf</code> using pip:</h2>
 <div class="codehilite"><pre><span class="nv">$ </span>sudo pip install pihdf
 </pre></div>
 
@@ -90,7 +90,7 @@
 
 
 <h3 id="install-pihdf-from-source">Install <code>pihdf</code> from source</h3>
-<p>For now, instal <code>pyhdf</code> from <a href="https://github.com/hnikolov/pihdf">https://github.com/hnikolov/pihdf</a>. Download and unzip, or clone <code>pihdf</code>. Then:</p>
+<p>You can also instal <code>pyhdf</code> from source: <a href="https://github.com/hnikolov/pihdf">https://github.com/hnikolov/pihdf</a>. Download and unzip, or clone <code>pihdf</code>. Then:</p>
 <div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
 <span class="nv">$ </span>sudo python setup.py develop
 </pre></div>
@@ -110,8 +110,8 @@
 
 
 <h2 id="dependences-on-python-packages">Dependences on Python packages</h2>
-<p><code>pihdf</code> depends on the following python packages: <strong>myhdl, simplejson, coverage, nose</strong>. 
-These will be installed during the installation of <code>pihdf</code> if not present on your system. </p>
+<p><code>pihdf</code> requires the following python packages: <strong>myhdl, myhdl_lib, simplejson, coverage, nose</strong>. 
+These packages will be installed during the installation of <code>pihdf</code> if not present on your system. </p>
 <p><strong>Note:</strong> These packages will <strong>not</strong> be un-installed if you un-install <code>pyhdf</code>.</p>
 <h2 id="co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</h2>
 <p>For co-simulations, <code>pihdf</code> uses the <strong>Icarus iverilog</strong> simulator. <strong>GTKWave</strong> is the waveform viewer used in <code>pihdf</code>. For structured designs, <code>pihdf</code> generates also the design topology (i.e., HW modules interconnections) as a <code>.dot</code> file. To viasualize it, you can use <code>xdot</code> program. Install all programs by executing:</p>
@@ -139,8 +139,11 @@ These will be installed during the installation of <code>pihdf</code> if not pre
             <a href="#"><strong>Install</strong></a>
             <div class="toc">
 <ul>
+<li><a href="#install-pihdf-using-pip">Install pihdf using pip:</a><ul>
 <li><a href="#install-pihdf-from-source">Install pihdf from source</a></li>
 <li><a href="#un-install-pihdf">Un-install pihdf</a></li>
+</ul>
+</li>
 <li><a href="#dependences-on-python-packages">Dependences on Python packages</a></li>
 <li><a href="#co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</a></li>
 <li><a href="#create-myhdlvpi">Create myhdl.vpi</a></li>
