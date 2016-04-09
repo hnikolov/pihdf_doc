@@ -9,8 +9,8 @@ Below, we present the steps to instal `pihdf` with all the dependencies, conside
 
 MacOS is supported as well. However, we do not provide details about how to install `pihdf` on MacOS.
 
-Work in progress: The goal is to be able to install `pihdf` using pip:
-{.lead}
+Install `pihdf` using pip:
+==========================
 
 ```.bash
 $ sudo pip install pihdf
@@ -50,8 +50,8 @@ $ which module | xargs sudo rm
 
 Dependences on Python packages
 ==============================
-`pihdf` depends on the following python packages: __myhdl, simplejson, coverage, nose__. 
-These will be installed during the installation of `pihdf` if not present on your system. 
+`pihdf` requires the following python packages: __myhdl, myhdl_lib, simplejson, coverage, nose__. 
+These packages will be installed during the installation of `pihdf` if not present on your system. 
 
 __Note:__ These packages will __not__ be un-installed if you un-install `pyhdf`.
 
