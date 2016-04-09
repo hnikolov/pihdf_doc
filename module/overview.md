@@ -6,8 +6,7 @@ layout: page
 '__module__' is a command-line front-end tool of `pihdf`
 {.lead}
 
-This tool is installed together with __pihdf__ and it is located in directory `/.pihdf`.
-Therefore, make sure that you have added this directory to the variable _PATH_.
+This tool is installed together with __pihdf__.
 
 
 Usage
