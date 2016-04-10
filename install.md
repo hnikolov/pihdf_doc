@@ -4,13 +4,15 @@ layout: page
 pager: true
 ---
 
-Below, we present the steps to instal `pihdf` with all the dependencies, considering Linux Ubuntu distribution.
+Below, we present the steps to instal `pihdf` with all the dependencies, considering __Linux Ubuntu__ distribution.
 {.lead}
 
 MacOS is supported as well. However, we do not provide details about how to install `pihdf` on MacOS.
 
-Install `pihdf` using pip:
-==========================
+There are 2 ways to install `pihdf` on Ubuntu:
+
+Install `pihdf` using pip
+-------------------------
 
 ```.bash
 $ sudo pip install pihdf
@@ -25,27 +27,17 @@ $ sudo pip install --upgrade pip
 Install `pihdf` from source
 ---------------------------
 
-You can also instal `pyhdf` from source: <https://github.com/hnikolov/pihdf>. Download and unzip, or clone `pihdf`. Then:
+If you plan to contribute to `pihdf`, it is better to install it from source: 
+<https://github.com/hnikolov/pihdf>. You can do this by:
 ```.bash
+$ git clone https://github.com/hnikolov/pihdf
 $ cd pihdf
 $ sudo python setup.py develop
 ```
 
-Option `develop` installs `pyhdf` in 'editable' mode. You can use also the option 'install'. However, using the option 'develop' makes it easy to un-install `pihdf` (should you decide to do so).
-
-Un-install ``pihdf``
---------------------
-
-To un-install ``pihdf``:
-```.bash
-$ cd pihdf
-$ sudo python setup.py develop --uninstall
-```
-
-Then, remove the command-line script ``module`` from its location:
-```.bash
-$ which module | xargs sudo rm
-```
+Option `develop` installs `pyhdf` in _editable_ mode. 
+This is very convenient because your changes are immediately reflected into the installed `pihdf` package.
+This means that you do not need to re-install `pihdf` in order your changes to take effect.
 
 
 Dependences on Python packages
@@ -66,17 +58,50 @@ $ sudo apt-get install iverilog gtkwave xdot
 
 Create `myhdl.vpi`
 ==================
-For co-simuations, myhdl uses a `.vpi` interface. To create the `myhdl.vpi` file used with Icarus, download the source of myhdl. Then,
+For co-simuations, myhdl uses a `.vpi` interface. To create the `myhdl.vpi` file used with __Icarus__, you need the source of `myhdl`:
 
 ```.bash
-$ cd [myhdl-folder]/cosimulation/icarus/
-$ make 
+$ git clone https://github.com/jandecaluwe/myhdl
+$ make -C myhdl/cosimulation/icarus
+$ sudo mkdir /.pihdf
+$ sudo cp myhdl/cosimulation/icarus/myhdl.vpi /.pihdf
 ```
 
-__Note:__ The file 'myhdl.vpi has to be copied to folder '/.pihdf'
+__Note:__ `pihdf` expects file `myhdl.vpi` to be in folder `/.pihdf`
 
 
 * * *
-Now, you are ready to use `pihdf`. Check its [front-end tool][module] (called 'module'), the [details][details] about `pihdf`, and the [turorials][tutorials] that will help you to get started.
+* * *
+Now, you are ready to use `pihdf`. Check its [front-end tool][module] (called `module`), the [details][details] about `pihdf`, and the [turorials][tutorials] that will help you to get started.
 {.lead}
+* * *
+* * *
+
+Un-install
+==========
+
+Un-installing `pihdf` (should you decide to do so) is easy. Depending on how you installed it, you can:
+
+Un-install `pihdf` using pip
+----------------------------
+
+```.bash
+$ sudo pip uninstall pihdf
+```
+
+Un-install `pihdf` if installed from source
+-------------------------------------------
+
+```.bash
+$ cd pihdf
+$ sudo python setup.py develop --uninstall
+```
+
+Remove `module`
+---------------
+
+To remove the command-line tool `module` from its location:
+```.bash
+$ which module | xargs sudo rm
+```
 
