@@ -78,7 +78,7 @@
     <div class="content">
       <div class="col-md-7" role="main">
         <h2 id="format">Format</h2>
-<div class="codehilite"><pre>module <span class="o">[</span>MPATH<span class="o">]</span> add <span class="o">[</span><span class="nb">type</span><span class="o">]</span> <span class="s2">&quot;flags&quot;</span>
+<div class="codehilite"><pre>module <span class="o">[</span>MPATH<span class="o">]</span> add <span class="o">[</span>type<span class="o">]</span> <span class="s2">&quot;flags&quot;</span>
 </pre></div>
 
 
@@ -86,7 +86,7 @@
 <p>Command <strong>add</strong> modifies the module's <code>.json</code> file by inserting an entry containing the <strong>[type]</strong> and the additional information. Then, it invokes command <a href="/pihdf_doc/module/update.html" title="Command 'update'"><strong>update</strong></a>.</p>
 <h2 id="usage">Usage</h2>
 <p>For a <code>hello_world</code> example, to which we want to add a <code>64-bit</code> input <code>STAvln</code> called <code>in_1</code>, the usage is: </p>
-<div class="codehilite"><pre><span class="nv">$ </span>module hello_world add STAvln <span class="s2">&quot;-n in_1 -d IN -w 64&quot;</span>
+<div class="codehilite"><pre>$ module hello_world add STAvln <span class="s2">&quot;-n in_1 -d IN -w 64&quot;</span>
 </pre></div>
 
 
@@ -114,6 +114,8 @@
   </div>
 
   <ul class="pager">
+    <li class="previous"><a href="/pihdf_doc/module/new.html">&larr; Command 'new'</a></li>
+    <li class="next"><a href="/pihdf_doc/module/rem.html">Command 'remove' &rarr;</a></li>
   </ul>
 
     <div class="footer">

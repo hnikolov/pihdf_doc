@@ -80,22 +80,22 @@
 <p>MacOS is supported as well. However, we do not provide details about how to install <code>pihdf</code> on MacOS.</p>
 <p>There are 2 ways to install <code>pihdf</code> on Ubuntu:</p>
 <h3 id="install-pihdf-using-pip">Install <code>pihdf</code> using pip</h3>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo pip install pihdf
+<div class="codehilite"><pre>$ sudo pip install pihdf
 </pre></div>
 
 
 <p><strong>Note:</strong> If you do not have <code>pip</code> installed:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install python-pip python-dev build-essential 
-<span class="nv">$ </span>sudo pip install --upgrade pip 
+<div class="codehilite"><pre>$ sudo apt-get install python-pip python-dev build-essential 
+$ sudo pip install --upgrade pip 
 </pre></div>
 
 
 <h3 id="install-pihdf-from-source">Install <code>pihdf</code> from source</h3>
 <p>If you plan to contribute to <code>pihdf</code>, it is better to install it from source: 
 <a href="https://github.com/hnikolov/pihdf">https://github.com/hnikolov/pihdf</a>. You can do this by:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>git clone https://github.com/hnikolov/pihdf
-<span class="nv">$ </span><span class="nb">cd </span>pihdf
-<span class="nv">$ </span>sudo python setup.py develop
+<div class="codehilite"><pre>$ git clone https://github.com/hnikolov/pihdf
+$ <span class="nb">cd</span> pihdf
+$ sudo python setup.py develop
 </pre></div>
 
 
@@ -108,16 +108,16 @@ These packages will be installed during the installation of <code>pihdf</code> i
 <p><strong>Note:</strong> These packages will <strong>not</strong> be un-installed if you un-install <code>pyhdf</code>.</p>
 <h2 id="co-simulation-waveform-and-dotty-viewers">Co-simulation, waveform and dotty viewers</h2>
 <p>For co-simulations, <code>pihdf</code> uses the <strong>Icarus iverilog</strong> simulator. <strong>GTKWave</strong> is the waveform viewer used in <code>pihdf</code>. For structured designs, <code>pihdf</code> generates also the design topology (i.e., HW modules interconnections) as a <code>.dot</code> file. To viasualize it, you can use <code>xdot</code> program. Install all programs by executing:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install iverilog gtkwave xdot
+<div class="codehilite"><pre>$ sudo apt-get install iverilog gtkwave xdot
 </pre></div>
 
 
 <h2 id="create-myhdlvpi">Create <code>myhdl.vpi</code></h2>
 <p>For co-simuations, myhdl uses a <code>.vpi</code> interface. To create the <code>myhdl.vpi</code> file used with <strong>Icarus</strong>, you need the source of <code>myhdl</code>:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>git clone https://github.com/jandecaluwe/myhdl
-<span class="nv">$ </span>make -C myhdl/cosimulation/icarus
-<span class="nv">$ </span>sudo mkdir /.pihdf
-<span class="nv">$ </span>sudo cp myhdl/cosimulation/icarus/myhdl.vpi /.pihdf
+<div class="codehilite"><pre>$ git clone https://github.com/jandecaluwe/myhdl
+$ make -C myhdl/cosimulation/icarus
+$ sudo mkdir /.pihdf
+$ sudo cp myhdl/cosimulation/icarus/myhdl.vpi /.pihdf
 </pre></div>
 
 
@@ -130,19 +130,19 @@ These packages will be installed during the installation of <code>pihdf</code> i
 <h2 id="un-install">Un-install</h2>
 <p>Un-installing <code>pihdf</code> (should you decide to do so) is easy. Depending on how you installed it, you can:</p>
 <h3 id="un-install-pihdf-using-pip">Un-install <code>pihdf</code> using pip</h3>
-<div class="codehilite"><pre><span class="nv">$ </span>sudo pip uninstall pihdf
+<div class="codehilite"><pre>$ sudo pip uninstall pihdf
 </pre></div>
 
 
 <h3 id="un-install-pihdf-if-installed-from-source">Un-install <code>pihdf</code> if installed from source</h3>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>pihdf
-<span class="nv">$ </span>sudo python setup.py develop --uninstall
+<div class="codehilite"><pre>$ <span class="nb">cd</span> pihdf
+$ sudo python setup.py develop --uninstall
 </pre></div>
 
 
 <h3 id="remove-module">Remove <code>module</code></h3>
 <p>To remove the command-line tool <code>module</code> from its location:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>which module <span class="p">|</span> xargs sudo rm
+<div class="codehilite"><pre>$ which module <span class="p">|</span> xargs sudo rm
 </pre></div>
       </div>
     </div>

@@ -85,7 +85,7 @@
 </ol>
 <h3 id="1-design-section-of-a-json-file">1) <strong>design</strong> section of a <code>.json</code> file</h3>
 <p>The <strong>design</strong> section has the following format:</p>
-<div class="codehilite"><pre><span class="s">&quot;design&quot;</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;interfaces&quot;</span> <span class="p">[,</span> <span class="s">&quot;parameters&quot;</span><span class="p">]</span> <span class="p">}</span>
+<div class="codehilite"><pre><span class="s2">&quot;design&quot;</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;interfaces&quot;</span> <span class="p">[,</span> <span class="s2">&quot;parameters&quot;</span><span class="p">]</span> <span class="p">}</span>
 </pre></div>
 
 
@@ -104,8 +104,8 @@
          <span class="p">[</span>
              <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Reset&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">},</span>
              <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Clock&quot;</span><span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
          <span class="p">],</span>
          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
          <span class="p">[</span>
@@ -123,7 +123,7 @@
 <li>integrate other (i.e., already designed) HW modules into a new compound HW module, or to</li>
 <li>create new design projects for several (nested) HW modules at once. That is, a new sub-project will be created for every module found in this description if it does not exist. The format of the structure section is:</li>
 </ul>
-<div class="codehilite"><pre><span class="s">&quot;structure&quot;</span> <span class="p">:</span> <span class="p">{</span><span class="s">&quot;local_interfaces&quot;</span><span class="p">,</span> <span class="s">&quot;design_modules&quot;</span><span class="p">}</span>
+<div class="codehilite"><pre><span class="s2">&quot;structure&quot;</span> <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;local_interfaces&quot;</span><span class="p">,</span> <span class="s2">&quot;design_modules&quot;</span><span class="p">}</span>
 </pre></div>
 
 
@@ -133,7 +133,7 @@
 <li><code>design_modules</code> is a list of HW modules, which are interconnect to form the structure of the top module</li>
 </ul>
 <p>The format of a <code>design_modules</code> part is list of:</p>
-<div class="codehilite"><pre><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;type&quot;</span><span class="p">,</span> <span class="s">&quot;path&quot;</span><span class="p">,</span> <span class="s">&quot;connections&quot;</span><span class="p">}</span>
+<div class="codehilite"><pre><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;connections&quot;</span><span class="p">}</span>
 </pre></div>
 
 
@@ -141,7 +141,7 @@
 <ul>
 <li><code>name</code> is the instance name of a module</li>
 <li><code>type</code> is the type of a module</li>
-<li><code>path</code> is the location to the module design project, relative to the new HW module to be created</li>
+<li><code>path</code> is the location to the module design project, <strong>TODO</strong></li>
 <li><code>connections</code> describes the connections of the (local) module using local and/or global interfaces and parameters</li>
 </ul>
 <p>If <code>path</code> is empty, then a new HW module design project will be created for this module in the source directory structure (see below)</p>
@@ -155,8 +155,8 @@
          <span class="p">[</span>
              <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Reset&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span> <span class="p">},</span>
              <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Clock&quot;</span> <span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
          <span class="p">],</span>
          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
          <span class="p">[</span>
@@ -170,7 +170,7 @@
      <span class="p">{</span>
          <span class="nt">&quot;local_interfaces&quot;</span><span class="p">:</span>
          <span class="p">[</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">}</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">}</span>
          <span class="p">],</span>
          <span class="nt">&quot;design_modules&quot;</span><span class="p">:</span>
          <span class="p">[</span>
@@ -228,6 +228,7 @@
   </div>
 
   <ul class="pager">
+    <li class="next"><a href="/pihdf_doc/details/dir_struct.html">HW module directory structure &rarr;</a></li>
   </ul>
 
     <div class="footer">

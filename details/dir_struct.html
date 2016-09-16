@@ -88,8 +88,8 @@ assume, that we would like our HW module <code>hs_example</code> to contain two 
          <span class="p">[</span>
              <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rst&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Reset&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span> <span class="p">},</span>
              <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;clk&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Clock&quot;</span> <span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;rx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;IN&quot;</span><span class="p">},</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tx_hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;direction&quot;</span><span class="p">:</span><span class="s2">&quot;OUT&quot;</span><span class="p">}</span>
          <span class="p">],</span>
          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
          <span class="p">[</span>
@@ -103,7 +103,7 @@ assume, that we would like our HW module <code>hs_example</code> to contain two 
      <span class="p">{</span>
          <span class="nt">&quot;local_interfaces&quot;</span><span class="p">:</span>
          <span class="p">[</span>
-             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">}</span>
+             <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;HSD&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">}</span>
          <span class="p">],</span>
          <span class="nt">&quot;design_modules&quot;</span><span class="p">:</span>
          <span class="p">[</span>
@@ -139,7 +139,7 @@ assume, that we would like our HW module <code>hs_example</code> to contain two 
 <p>In this example, the (global/top-level) <code>Reset</code> and <code>Clock</code> interfaces are connected to the sub-modules, the <code>rx_hs</code> interface is connected to the input of <code>module1</code>, and the output of <code>module2</code> is connected to the output interface <code>tx_hs</code>. The two modules are connected via a hand-shake interface (<code>hs</code>) which itself contains a FIFO buffer of depth 2. Note also how comments can be added in the .json file if needed.</p>
 <h2 id="generated-directory-structure">Generated directory structure</h2>
 <p>The .json file above is sufficient to create a structured design in <code>pihdf</code>:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>module hs_example new
+<div class="codehilite"><pre>$ module hs_example new
 </pre></div>
 
 
@@ -210,6 +210,8 @@ will create a new design (sub-)project for <code>module2</code> as well. Consequ
   </div>
 
   <ul class="pager">
+    <li class="previous"><a href="/pihdf_doc/details/json.html">&larr; json file format of a HW module</a></li>
+    <li class="next"><a href="/pihdf_doc/details/utest.html">Unit testing of design modules &rarr;</a></li>
   </ul>
 
     <div class="footer">
